@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'NanumBarunGothic';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothic/NanumBarunGothicWeb.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothic/NanumBarunGothicWeb.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothic/NanumBarunGothicWeb.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothic/NanumBarunGothicWeb.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumBareunGothicLight';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothicL/NanumBarunGothicWebLight.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothicL/NanumBarunGothicWebLight.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothicL/NanumBarunGothicWebLight.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothicL/NanumBarunGothicWebLight.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumBarunGothicBold';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothic/NanumBarunGothicWebBold.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothic/NanumBarunGothicWebBold.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothic/NanumBarunGothicWebBold.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothic/NanumBarunGothicWebBold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: 'NanumBareunGothicUltraLight';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothicL/NanumBarunGothicWebUltraLight.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothicL/NanumBarunGothicWebUltraLight.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothicL/NanumBarunGothicWebUltraLight.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumBarunGothicL/NanumBarunGothicWebUltraLight.ttf) format("truetype");
+}
+
+html, body {
+    font-family: 'NanumBarunGothic', sans-serif;
+}
+.t2{
+    font-family: 'NanumBarunGothicBold', sans-serif;
+}
+.t3{
+    font-family: 'NanumBareunGothicLight', sans-serif;
+}
+.t4{
+    font-family: 'NanumBareunGothicUltraLight';
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#wrapped {width: 1180px; margin: 0 auto;}
+
+ul, li {
+    list-style: none;
+    text-decoration: none;
+}
+
+
+.btn_round {
+    background-color: #00AFB9; 
+    border: 1px solid #00AFB9;
+    border-radius: 10px; 
+    color: #FFFFFF; 
+    font-size: 13px;
+    padding: 0 15px;
+    height: 25px;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: none;
+}
+.btn_round:hover {
+    color: #222;
+}
+
+nav {border: 1px solid #999; margin-top: 15px; border-top: 0px; border-left: 0px;}
+
+.mini_listwrap {border-top: 3px solid #00AFB9;}
+
+.title {
+    overflow: hidden; 
+    border-top: 2px solid #00AFB9; 
+    line-height: 25px; 
+    border-bottom: 1px solid #999; 
+    border-left: 1px solid #999;
+    background-color:#f9f7f3;
+    font-size: 15px; 
+    font-weight: bold; 
+    padding: 5px; 
+    margin: 0px;
+}
+
+
+.title > .list_num {color: #999; font-weight: normal; font-size: 12px; vertical-align: top;}
+.title > button {
+    vertical-align: top; 
+    cursor: pointer; 
+    background: transparent; 
+    display: inline-block; 
+    float: right;
+    color: #00AFB9;
+    padding: 6px 12px; 
+    text-align: center;
+}
+
+.btn_list:active:focus, .btn_list:focus {
+    outline: none;
+    outline-offset: 0px;
+}
+
+.btn_list:focus, .btn_list:focus, .btn_list:hover {
+    text-decoration: none;
+    color: #00AFB9;
+}
+
+.title > button:hover {
+    box-sizing: border-box;
+    color: #00AFB9;
+} 
+
+
+.list_box {border-collapse: collapse; }
+
+.list {
+    display: inline-block;
+    height: 540px; 
+    border-left: 1px solid #999; 
+    width: 14%;
+
+}
+
+.list ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: 10px 10px;
+}
+
+.list ul li {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: 0 atuo;
+    padding: 10px;
+    height: 25.5px;
+    line-height: 25.5px;
+    display: inline-block;
+}
+
+
+.list ul li a {
+    font-size: 11px;
+    color: #222; 
+    font-family:'NanumBareunGothicLight', sans-serif;
+    text-decoration: none; 
+    display: inline-block;
+    white-space: nowrap; 
+}
+
+.list ul li a:hover {text-decoration: underline; } 

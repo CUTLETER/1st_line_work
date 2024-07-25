@@ -1,0 +1,70 @@
+.delete-page {
+    margin: 0 auto;
+    /* padding: 0 90px; */
+    border: 1px solid #ccc;
+    padding-left: 50px;
+}
+
+
+.delete-page h3 {
+    margin-top: 40px;
+    font-size: 25px;
+}
+
+.delete-page p, a{
+    font-family: 'NanumBarunGothic', sans-serif;
+}
+
+.delete-page h3, .delete-info .bold, .warning-box .bold  {
+    font-family: 'NanumBarunGothicBold', sans-serif;
+}
+
+.delete-page .light {
+    color: #888;
+    font-size: 14px;
+}
+
+
+/*탈퇴 상세 안내*/
+.delete-info .bold {
+    margin-bottom: 0;
+    margin-top: 40px;
+    font-size: 15px;
+}
+
+.delete-info .glyphicon-ok {
+    color: #00AFB9;
+}
+
+
+/*하단 탈퇴 안내*/
+.warning-box > a {
+    text-align: center;
+    color: #333;
+    cursor: default;
+    font-size: 14px;
+}
+
+.warning-box .bold {
+    margin-top: 40px;
+    color: #00AFB9;
+    font-size: 15px;
+}
+
+
+
+/*확인 버튼*/
+.delete-page .delete-btn {
+    text-align: left;
+    margin: 40px 0;
+}
+
+.delete-page .delete-btn .check-btn {
+    border: 0;
+    color: #FFFFFF;
+    background-color: #00AFB9;
+    width: 60px;
+    height: 30px;
+    font-size: 14px;
+}
+

@@ -1,0 +1,121 @@
+.header {
+    width: 1180px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+    background-color: #fff;
+    z-index: 1000;
+    padding: 50px 0;
+    box-sizing: border-box;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1920px;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.header .logo img {
+    width: 200px;
+    height: auto;
+}
+
+
+/*헤더 메뉴*/
+.header .header-menu {
+	width:600px;
+	display: flex;
+    align-items: center;
+	justify-content: space-between;
+}
+
+.header .header-menu .menu-btn {
+	font-size:20px;
+	display: flex;
+	align-items: center;
+    color: #222;
+    font-size: 20px;
+    font-family: 'NanumBarunGothic', sans-serif;
+    background-color: #fff;
+}
+
+.header .header-menu .menu-btn:active:focus {
+    outline: none;
+}
+
+.header .header-menu .menu-btn:focus {
+    font-family: 'NanumBarunGothicBold', sans-serif;
+    box-shadow: none;
+    outline: none;
+}
+
+.header .header-menu .menu-btn:hover {
+    color: #333;
+}
+
+
+/*회원가입 및 로그인 버튼*/
+
+.header .right-btn .btn-login {
+    font-size: 13px;
+    border: 0;
+    width: 70px;
+    height: 30px;
+    color: #FFFFFF;
+    background-color: #00AFB9;
+    font-weight: 600;
+}
+
+.header .right-btn .btn-join {
+    font-size: 13px;
+    border: 1px solid #ccc;
+    width: 70px;
+    height: 30px;
+    color: #666;
+    background-color: #FFFFFF;
+    font-weight: 600;
+}
+
+
+/* 아래부터 드롭다운*/
+
+.menu-btn {
+    height: 30px;
+}
+
+.menu-btn::after {
+    border: 0px;
+}
+
+
+.header .header-menu .drop-menu {
+    border-radius: 0;
+    box-shadow: none;
+    margin-top: 35px;
+    min-width: 120px;
+}
+
+
+.header .header-menu .drop-menu a {
+    color: #333;
+    font-size: 15px;
+}
+
+.drop-list:hover, .drop-list:focus {
+    text-decoration: underline;
+    background-color: #FFFFFF;
+}
+
+.empty {
+    margin: 150px;
+}

@@ -1,0 +1,35 @@
+.footer-box {
+    width: 1180px;
+    padding: 75px 0px;
+    margin: 0 auto;
+    position: relative;
+    height: 1px;
+}
+
+.footer-box::before {
+    position: absolute;
+    content: "";
+    top: 50px;
+    left: 50%;
+    width: 1920px;
+    height: 1px;
+    background-color: #ddd;
+    transform: translateX(-50%);
+}
+
+.footer-list {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-list a {
+    color: #777;
+    font-size: 13px;
+}
+
+.footer-box p {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    font-family: 'NanumBarunGothic', sans-serif;
+}

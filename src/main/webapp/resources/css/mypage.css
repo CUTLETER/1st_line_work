@@ -1,0 +1,209 @@
+
+/*내 정보 및 로그아웃 버튼*/
+.header .user-btn {
+    display: flex;
+    gap: 3px;
+}
+
+.header .user-btn .btn-logout {
+    font-size: 13px;
+    border: 0;
+    width: 70px;
+    height: 30px;
+    color: #FFFFFF;
+    background-color: #00AFB9;
+    font-weight: 600;
+}
+
+.header .user-btn .btn-my {
+    font-size: 13px;
+    border: 1px solid #ccc;
+    width: 70px;
+    height: 30px;
+    color: #666;
+    background-color: #FFFFFF;
+    font-weight: 600;
+}
+
+
+
+/*드롭다운*/
+.header .header-menu > .drop-menu2 {
+    border-radius: 0;
+    box-shadow: none;
+    margin-top: 35px;
+    margin-left: -35px;
+}
+
+
+.header .header-menu > .drop-menu2 > li > a {
+    color: #333;
+    font-size: 15px;
+}
+
+.drop-list2:hover, .drop-list2:focus {
+    text-decoration: underline;
+    background-color: #FFFFFF;
+}
+
+
+/*--------------------------------------*/
+
+/* 게시글 목록 */
+
+.board, .comment-page {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.board > thead > tr > th,
+.board > tbody > tr > td,
+.comment-page > thead > tr > th,
+.comment-page > tbody > tr > td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #e7e7e7;
+    font-size: 15px;
+    color: #222;
+}
+
+.board > thead > tr > th,
+.comment-page > thead > tr > th {
+    font-size: 16px;
+    color: black;
+}
+
+.board > thead > tr > th,
+.comment-page > thead > tr > th {
+    background-color: #f9f7f3;
+    font-weight: bold;
+}
+
+
+/*내가 쓴 글 내용*/
+.board > thead > tr > .td_check {
+    width: 10%;
+}
+
+.board > thead > tr > td.num {
+    width: 10%;
+}
+
+.board > thead > tr > td.subject {
+    width: 50%;
+}
+
+.board > thead > tr > td.date {
+    width: 10%;
+}
+
+.board > thead > tr > td.hits {
+    width: 10%;
+}
+
+.board > thead > tr > td.likes {
+    width: 10%;
+}
+
+.board > .subject a, .comment-page > .subject a {
+    color: black;
+    font-weight: normal;
+} 
+
+
+
+
+
+/*내가 쓴 댓글*/
+.comment-page > thead > tr > .td_check {
+    width: 10%;
+}
+
+.comment-page > thead > tr > td.num {
+    width: 10%;
+}
+
+.comment-page > thead > tr > td.subject {
+    width: 60%;
+}
+
+.comment-page > thead > tr > td.date {
+    width: 10%;
+}
+
+.comment-page > thead > tr > td.likes {
+    width: 10%;
+}
+
+
+
+
+
+/*토글 탭*/
+.toggle-list {
+    margin: 0 auto;
+    width: 100%;
+}
+
+#toggle1, #toggle2 {
+    position: relative;
+}
+
+.toggle-list .toggle > li {    
+    margin: 0 10px 20px 0;
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.toggle-list .toggle > li:focus {
+    color: #222;
+    text-decoration: underline;
+}
+
+.toggle-menu {
+    display: none;
+}
+
+.active {
+    display: block; animation: fadeIn 0.5s ease-in-out;
+}
+
+
+/*전체 선택, 삭제 버튼*/
+#select-all {
+    position: absolute;
+    top: 90%;
+    left: 0px;
+    border: 0.5px solid #ccc;
+    width: 80px;
+    height: 30px;
+}
+
+#delete-btn {
+    position: absolute;
+    left: 7%;
+    top: 90%;
+    border: 0.5px solid #ccc;
+    width: 50px;
+    height: 30px;
+}
+
+
+/* 페이지 번호 */
+.pagination-wrap {
+    text-align: center;
+    height: 60px;
+}
+
+.pagination-wrap > .page-number > li > a {
+    color: #333;
+    border: 0;
+    line-height: 60px;
+}
+
+.page-number > li > a:focus, .page-number > li > a:hover {
+    background-color: #fff;
+    font-weight: 900;
+}

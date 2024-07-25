@@ -1,0 +1,123 @@
+.join-page {
+    width: 500px;
+    height: 700px;
+    margin: 0 auto;
+    border: 0.5px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.join-page h3 {
+    font-size: 25px;
+    font-family: 'NanumBarunGothic', sans-serif;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+.join-box > div {
+    position: relative;
+}
+
+.join-box > div .id-input {
+    width: 230px;
+}
+
+
+.join-box > div .id-input:hover {
+    border: 0.25px solid #00AFB9;
+    outline: none;
+}
+
+/*아이콘*/
+.join-box .user-icon1,
+.join-box .user-icon2,
+.join-box .user-icon3,
+.join-box .user-icon4,
+.join-box .user-icon5,
+.join-box .user-icon6 {
+    position: absolute;
+    font-size: 15px;
+    color: #f07167;
+}
+
+.join-box .user-icon1 {
+    top: 7px;
+    left: 7px;
+}
+
+.join-box .user-icon2 {
+    top: 67px;
+    left: 7px;
+}
+
+.join-box .user-icon3 {
+    top: 127px;
+    left: 7px;
+}
+
+.join-box .user-icon4 {
+    top: 187px;
+    left: 7px;
+}
+
+.join-box .user-icon5 {
+    top: 247px;
+    left: 7px;
+}
+
+.join-box .user-icon6 {
+    top: 307px;
+    left: 7px;
+}
+
+
+/*중복 확인 버튼*/
+.join-box .check-btn {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    float: right;
+    top: 0px;
+    left: 240px;
+    border: 0;
+    background-color: #00AFB9;
+    color: #fff;
+    font-family: 'NanumBarunGothic', sans-serif;    
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+
+/*입력창*/
+.join-box .join-input {
+    display: block;
+    border: 0.25px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    width: 300px;
+    height: 30px;
+    font-size: 13px;
+    text-indent: 25px;
+}
+
+.join-box .join-input:focus, .join-input:hover {
+    border: 0.25px solid #00AFB9;
+    outline: none;
+}
+
+
+/*회원 가입 버튼*/
+.join-page .join-btn {
+    border: 0;
+    background-color: #00AFB9;
+    color: #fff;
+    width: 300px;
+    height: 40px;
+    border-radius: 3px;
+    margin: 50px 0;
+    font-size: 15px;
+    font-family: 'NanumBarunGothic', sans-serif;    
+}
+

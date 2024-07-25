@@ -1,0 +1,125 @@
+.modify-page {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    border: 0.5px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modify-page h3 {
+    font-size: 25px;
+    font-family: 'NanumBarunGothic', sans-serif;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+.modify-box > div {
+    position: relative;
+}
+
+/*아이콘*/
+.modify-box .user-icon1,
+.modify-box .user-icon2,
+.modify-box .user-icon3,
+.modify-box .user-icon4,
+.modify-box .user-icon5,
+.modify-box .user-icon6 {
+    position: absolute;
+    font-size: 15px;
+    color: #f07167;
+}
+
+.modify-box .user-icon1 {
+    top: 7px;
+    left: 7px;
+}
+
+.modify-box .user-icon2 {
+    top: 67px;
+    left: 7px;
+}
+
+.modify-box .user-icon3 {
+    top: 127px;
+    left: 7px;
+}
+
+.modify-box .user-icon4 {
+    top: 187px;
+    left: 7px;
+}
+
+.modify-box .user-icon5 {
+    top: 247px;
+    left: 7px;
+}
+
+
+.modify-box .user-icon6 {
+    top: 307px;
+    left: 7px;
+}
+
+.modify-box .check-btn {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    float: right;
+    top: 0px;
+    left: 240px;
+    border: 0;
+    background-color: #00AFB9;
+    color: #eee;
+    font-family: 'NanumBarunGothic', sans-serif;    
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+/*입력창*/
+.modify-box .modify-input {
+    display: block;
+    border: 0.25px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    width: 300px;
+    height: 30px;
+    font-size: 13px;
+    text-indent: 25px;
+}
+
+.modify-box .modify-input:focus, .modify-input:hover {
+    border: 0.25px solid #00AFB9;
+    outline: none;
+}
+
+/*아이디 입력창*/
+.modify-box > div .id-input {
+    background-color: #f8f8f8;
+}
+
+.modify-box > div .id-input:focus, .id-input:hover {
+    border: 0.25px solid #ccc;
+}
+
+
+/*수정 취소 버튼*/
+.modify-page .modify-btn {
+    border: 1px solid #ccc;
+    color: #333;
+    background-color: #fff;
+    width: 80px;
+    height: 30px;
+    border-radius: 3px;
+    margin: 10px 0 0 0;
+    font-size: 13px;
+    font-family: 'NanumBarunGothic', sans-serif;  
+    line-height: 30px;
+    margin-right: 10px;  
+}
+
+.modify-page .check-btn {
+    color: #00AFB9;
+}

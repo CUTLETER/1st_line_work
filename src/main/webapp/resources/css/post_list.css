@@ -1,0 +1,107 @@
+/* 광고 슬라이드 */
+#my-slide {
+    margin-top: 52px;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+    background-image: none;
+}
+
+/* 게시글 조회 */
+.wrap {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center; 
+    gap: 0; 
+    border-bottom: 2px solid #00AFB9;
+    margin-top: 25px;
+    padding-bottom: 25px;
+    
+}
+
+.input-group {
+    display: flex;
+    align-items: center; 
+}
+
+.input-group.left {
+    flex: 0.5; 
+    
+}
+
+.input-group.right {
+    flex: 0.2; 
+    justify-content: flex-end; 
+}
+
+.board-connected {
+    color: black;
+}
+
+/* 게시글 목록 */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+thead th {
+    background-color: #f9f7f3;
+    font-weight: bold;
+}
+
+
+
+th:nth-child(1), td.td_num {
+    width: 15%;
+}
+
+th:nth-child(2), td.td_subject {
+    width: 40%;
+}
+
+th:nth-child(3), td.td_name {
+    width: 15%;
+}
+
+th:nth-child(4), td.td_datetime {
+    width: 15%;
+}
+
+th:nth-child(5), td.td_hits {
+    width: 15%;
+}
+
+
+th, td {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+
+
+ #board-list tbody .td_subject a {
+    color: black;
+    font-weight: normal;
+} 
+
+.bo_notice .td_subject a {
+    font-weight: 900;
+}
+
+
+
+
+tr:not(.bo_notice) .td_subject a {
+    font-weight: normal; 
+}
+
+.numlist {
+    text-align: center;
+}
