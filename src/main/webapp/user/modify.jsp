@@ -8,6 +8,7 @@
 <div id="wrapped">
         <div class="modify-page">
             <h3>회원 정보 수정</h3>
+            <form action="modifyForm.user">
             <div class="modify-box">
                 <div>
                     <i class="fa-regular fa-envelope user-icon1"></i> <input type="email"
@@ -20,12 +21,14 @@
                         class="modify-input" value="홍길동">
                 </div>
             </div>
+            <p style="color : red; font-size : 13px;">${error }</p>
             <div>
-                <button type="button" onclick="location.href = '#'"
+                <button type="button" onclick="location.href = '${pageContext.request.contextPath }/index.jsp'"
                     class="modify-btn">취소</button>
-                <button type="button" onclick="location.href = '#'"
-                    class="modify-btn check-btn">저장</button>
-            </div>
+                <button type="submit" class="modify-btn check-btn">저장</button>
+            </div>           
+            </form>
         </div>
     </div>
+    
 <%@ include file="../include/footer.jsp"%>

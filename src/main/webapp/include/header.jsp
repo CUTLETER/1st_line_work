@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +49,7 @@
 			<img src="${pageContext.request.contextPath }/resources/img/logo.png" alt="로고">
 		</div>
 		<div class="header-menu">
-			<button type="button" onclick="location.href = '#'" class="menu-btn">자유
+			<button type="button" onclick="location.href='${pageContext.request.contextPath}/board/list.board'" class="menu-btn">자유
 				게시판</button>
 			<button type="button" onclick="location.href = '#'" class="menu-btn">질문
 				게시판</button>
@@ -62,25 +64,29 @@
 				</ul>
 			</div>
 		</div>
-		<div class="right-btn">
-			<button type="button" onclick="location.href = '#'" class="btn-join">회원가입</button>
-			<button type="button" onclick="location.href = '#'" class="btn-login">로그인</button>
-		</div>
-		
-		
-<!-- 로그인 시 바뀔 버튼  		
-		<div class="user-btn">
-            <div class="dropdown drop-btn">
-				<button type="button" class="dropdown-toggle btn-my" data-toggle="dropdown">내 정보</button>
-				<ul class="dropdown-menu drop-menu2" style="min-width: 65px;">
-					<li><a class="dropdown-item drop-list2" href="#">정보 수정</a></li>
-					<li><a class="dropdown-item drop-list2" href="#">활동 내역</a></li>
-					<li><a class="dropdown-item drop-list2" href="#">회원 탈퇴</a></li>
-				</ul>
-			</div>			
-            <button type="button" onclick="location.href = '#'" class="btn-logout">로그아웃</button>
-		</div>
--->
+
+		 <!-- 로그인 유무에 따라 변하는 버튼 -->
+		 <c:choose>
+           	<c:when test="${sessionScope.id == null }">
+				<div class="right-btn">
+					<button type="button" onclick="location.href = '${pageContext.request.contextPath }/user/join.jsp'" class="btn-join">회원가입</button>
+					<button type="button" onclick="location.href = '${pageContext.request.contextPath }/user/login.jsp'" class="btn-login">로그인</button>
+				</div>
+           	</c:when> 
+            <c:otherwise>
+				<div class="user-btn">
+           			<div class="dropdown drop-btn">
+						<button type="button" class="dropdown-toggle btn-my" data-toggle="dropdown">내 정보</button>
+						<ul class="dropdown-menu drop-menu2" style="min-width: 65px;">
+							<li><a class="dropdown-item drop-list2" href="${pageContext.request.contextPath }/user/modify.user">정보 수정</a></li>
+							<li><a class="dropdown-item drop-list2" href="${pageContext.request.contextPath }/user/mypage.user">활동 내역</a></li>
+							<li><a class="dropdown-item drop-list2" href="${pageContext.request.contextPath }/user/delete.user">회원 탈퇴</a></li>
+						</ul>
+					</div>			
+           			 <button type="button" onclick="location.href = '${pageContext.request.contextPath }/user/logout.user'" class="btn-logout">로그아웃</button>
+				</div>
+            </c:otherwise>
+         </c:choose>
 
 	</header>
 	<div class="empty"></div>
@@ -97,4 +103,12 @@
 				+ cssFile + "css";
 	
 		document.querySelector("head").appendChild(link);
+		
+		
+	</script>
+	
+	<script type="text/javascript">
+		<@ if (request.getAttribute("error") != null) { %>
+			alert('<@ request.getAttribute("error") @>');
+		<@ } @>	
 	</script>

@@ -1,8 +1,8 @@
-package com.firstline.user.model;
+package com.kkodamkkodam.user.model;
 
 public class UserDTO {
 
-	private int user_no;
+	private Long userNo;
 	private String id;
 	private String pw;
 	private String name;
@@ -12,21 +12,28 @@ public class UserDTO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public UserDTO(int user_no, String id, String pw, String name, String deleted) {
+	public UserDTO(String id, String pw, String name) {
 		super();
-		this.user_no = user_no;
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+	}
+
+	public UserDTO(Long userNo, String id, String pw, String name, String deleted) {
+		super();
+		this.userNo = userNo;
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
 		this.deleted = deleted;
 	}
 
-	public int getuser_no() {
-		return user_no;
+	public Long getuserNo() {
+		return userNo;
 	}
 
-	public void setuser_no(int user_no) {
-		this.user_no = user_no;
+	public void setuserNo(Long userNo) {
+		this.userNo = userNo;
 	}
 
 	public String getId() {

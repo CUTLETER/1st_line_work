@@ -1,3 +1,7 @@
+#wrapped {
+	position : relative;
+}
+
 .join-page {
     width: 500px;
     height: 700px;
@@ -42,33 +46,23 @@
     color: #f07167;
 }
 
-.join-box .user-icon1 {
-    top: 7px;
+.join-box > .user-icon1 {
+    top: 9px;
     left: 7px;
 }
 
-.join-box .user-icon2 {
-    top: 67px;
+.join-box > .user-icon2 {
+    top: 69px;
     left: 7px;
 }
 
-.join-box .user-icon3 {
-    top: 127px;
+.join-box > .user-icon3 {
+    top: 129px;
     left: 7px;
 }
 
-.join-box .user-icon4 {
-    top: 187px;
-    left: 7px;
-}
-
-.join-box .user-icon5 {
-    top: 247px;
-    left: 7px;
-}
-
-.join-box .user-icon6 {
-    top: 307px;
+.join-box > .user-icon4 {
+    top: 189px;
     left: 7px;
 }
 
@@ -120,4 +114,5 @@
     font-size: 15px;
     font-family: 'NanumBarunGothic', sans-serif;    
 }
+
 

@@ -1,60 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- 1. mapper 꺼로 긁어오기 -->
 <!DOCTYPE mapper 
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 
-	1. 모든 내용은 mapper 안으로 들어감
-	2. namespace에는 구현인터페이스의 풀 경로가 들어감
-	3. id 속성은 mapper 인터페이스에 있는 메소드명이 들어감
-	4. resultType 속성은 반환 받을 타입이 들어감 (string, int, double, dto 풀 경로)
-	
-	****마이바티스의 매개변수는 일단 꼭 '1개'여야 함
-	
-	5. parameterTYPE에는 매개변수의 타입이 들어감 (string, int, double, dto 풀 경로)
-	  -> 다만 생략 가능함
-	  
-	6. ?값은 #{DTO의 멤버변수명}으로 바뀜 ** 대소문자 ** 
-	
-	7. SELECT만 resultType 쓰고 나머지 INSERT, UPDATE, DELETE는 parameterType 씀 (resultSet과 동일함)
-	
-	8. ?가 단일 값인 경우에는 매개변수명을 따라감
--->
+<mapper namespace="com.kkodamkkodam.board.model.BoardMapper">
 
-<!-- 2. mapper 작성하기, id 값(메소드명)과 resultType(반환 타입) 잘 적기 -->
-
-<!-- 
-	<mapper namespace="com.myweb.board.model.BoardMapper">
-	
-	<select id="now" resultType="string"> id 속성은 인터페이스에 있는 메소드명이 들어감,"" 반환 받을 타입 소문자로 작성
-		SELECT SYSDATE FROM DUAL 세미 콜론 찍지 않음
+	<select id="getList" resultType="com.kkodamkkodam.board.model.BoardDTO">
+		SELECT 
+		    p.post_no,
+		    p.board_id,
+		    p.title,
+		    p.view_count,
+		    p.regdate,
+		    b.board_type
+		FROM 
+		    post p
+		JOIN 
+		    board b
+		ON 
+		    p.board_id = b.board_id
+		where p.board_id=#{boardId}
 	</select>
-	
-	<select id="getList" resultType="com.myweb.board.model.BoardDTO"> dto 풀 경로
-		SELECT * FROM BOARD ORDER BY BNO DESC
+	<select id="getContent" resultType="com.kkodamkkodam.board.model.BoardDTO">
+		SELECT * FROM post WHERE board_id = #{boardId} AND POST_No = #{postNo}
 	</select>
-	
-	<insert id="regist" parameterType="com.myweb.board.model.BoardDTO">매개변수 타입
-		INSERT INTO BOARD(BNO, WRITER, TITLE, CONTENT) VALUES (BOARD_SEQ.NEXTVAL, #{writer}, #{title}, #{content}) (#{DTO의 멤버변수명})
-	</insert>
-	
-	<select id="getContent" resultType="com.myweb.board.model.BoardDTO">
-		SELECT * FROM BOARD WHERE BNO = #{bno} mapper 자바의 public BoardDTO getContent(String bno); 이 매개변수명이 그대로 들어감
-	</select>
-	
-	<update id="update" parameterType="com.myweb.board.model.BoardDTO">
-		UPDATE BOARD SET TITLE = #{title}, CONTENT = #{content} WHERE BNO = #{bno}
+	<update id="increaseView" parameterType="Map">
+		UPDATE post SET VIEW_COUNT = VIEW_COUNT + 1 WHERE board_id = #{boardId} AND POST_No = #{postNo}
 	</update>
 	
-	<delete id="delete" parameterType="String">
-		DELETE FROM BOARD WHERE BNO = #{bno}
-	</delete>
-	
-	<update id="increaseHit" parameterType="string">
-		UPDATE BOARD SET HIT = HIT + 1 WHERE BNO = #{bno}
+	<update id="commentWrite" parameterType="Map">
 	</update>
+	
+</mapper>
 
-	</mapper> 
--->
+
+
+
+
+
+
+

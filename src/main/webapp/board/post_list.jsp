@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>   
 
 <%@ include file="../include/header.jsp" %>    
 
@@ -50,7 +51,7 @@
       <section id="board-title" class="title">
         <div class="wrap" >
           <div class="left">
-          <h4 class="board-connected">현재 게시판</h4>
+          <h4 class="board-connected"><c:out value="${list[0].boardType}" /> 게시판</h4>
         </div>
         <div class="input-group right">
             <input type="text" class="form-control" placeholder="Search">
@@ -74,56 +75,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="bo_notice">
-          <td class="td_num"><strong class="notice_icon">공지</strong></td>
-          <td class="td_subject"><a href="#">QA는 중단하겠습니다.</a> </td>
-          <td class="td_name sv_use">관리자</td>
-          <td class="td_datetime">02-13</td>
-          <td class="td_hits">99</td>
-        </tr>
-        <tr class="">
-          <td class="td_num">253</td>
-          <td class="td_subject"><a href="#">요즘, 제가 즐겨듣는 노래입니다.</a> </td>
-          <td class="td_name sv_use">신비</td>
-          <td class="td_datetime">01-19</td>
-          <td class="td_hits">99</td>
-        </tr>
-        <tr class="">
-          <td class="td_num">253</td>
-          <td class="td_subject"><a href="#">요즘, 제가 즐겨듣는 노래입니다.</a> </td>
-          <td class="td_name sv_use">신비</td>
-          <td class="td_datetime">01-19</td>
-          <td class="td_hits">99</td>
-        </tr>
-        <tr class="">
-          <td class="td_num">253</td>
-          <td class="td_subject"><a href="#">요즘, 제가 즐겨듣는 노래입니다.</a> </td>
-          <td class="td_name sv_use">신비</td>
-          <td class="td_datetime">01-19</td>
-          <td class="td_hits">99</td>
-        </tr>
-        <tr class="">
-          <td class="td_num">253</td>
-          <td class="td_subject"><a href="#">요즘, 제가 즐겨듣는 노래입니다.</a> </td>
-          <td class="td_name sv_use">신비</td>
-          <td class="td_datetime">01-19</td>
-          <td class="td_hits">99</td>
-        </tr>
-        <tr class="">
-          <td class="td_num">253</td>
-          <td class="td_subject"><a href="#">요즘, 제가 즐겨듣는 노래입니다.</a> </td>
-          <td class="td_name sv_use">신비</td>
-          <td class="td_datetime">01-19</td>
-          <td class="td_hits">99</td>
-        </tr>
-        <tr class="">
-          <td class="td_num">253</td>
-          <td class="td_subject"><a href="#">요즘, 제가 즐겨듣는 노래입니다.</a> </td>
-          <td class="td_name sv_use">신비</td>
-          <td class="td_datetime">01-19</td>
-          <td class="td_hits">99</td>
-        </tr>
-
+        <c:forEach var="dto" items="${list}">
+			<tr>
+				<td>${dto.postNo}</td>
+				<td>
+					<a href="getContent.board?postNo=${dto.postNo}&boardId=${dto.boardId}">${dto.title }</a>
+				</td>
+				<td>${dto.userNo}</td>
+				<td><fmt:formatDate value="${dto.regdate}" pattern="MM-dd"/></td>
+				<td>${dto.viewCount}</td>
+				</tr>
+		</c:forEach>
       </tbody>
       </table>
 

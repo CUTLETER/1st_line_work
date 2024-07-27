@@ -1,32 +1,4 @@
 
-/*내 정보 및 로그아웃 버튼*/
-.header .user-btn {
-    display: flex;
-    gap: 3px;
-}
-
-.header .user-btn .btn-logout {
-    font-size: 13px;
-    border: 0;
-    width: 70px;
-    height: 30px;
-    color: #FFFFFF;
-    background-color: #00AFB9;
-    font-weight: 600;
-}
-
-.header .user-btn .btn-my {
-    font-size: 13px;
-    border: 1px solid #ccc;
-    width: 70px;
-    height: 30px;
-    color: #666;
-    background-color: #FFFFFF;
-    font-weight: 600;
-}
-
-
-
 /*드롭다운*/
 .header .header-menu > .drop-menu2 {
     border-radius: 0;

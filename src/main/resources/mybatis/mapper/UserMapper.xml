@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kkodamkkodam.user.model.UserMapper">
+	
+	<!-- 중복 검사 -->
+	<select id="checkId" resultType="com.kkodamkkodam.user.model.UserDTO">
+		SELECT * FROM USERS WHERE ID = #{id}
+	</select>
+	
+	<!-- 가입 -->
+	<insert id="join" parameterType="com.kkodamkkodam.user.model.UserDTO">
+    INSERT INTO USERS(ID, PW, NAME) 
+    VALUES (#{id}, #{pw}, #{name}) <!-- (#{DTO의 멤버변수명}) -->
+	</insert>
+	
+	<!-- 로그인 -->
+	<select id="login" parameterType="com.kkodamkkodam.user.model.UserDTO" resultType="com.kkodamkkodam.user.model.UserDTO">
+		SELECT * FROM USERS WHERE ID = #{id} AND PW = #{pw}
+	</select>
+	
+	<!-- 정보 조회 -->
+	<select id="getPost" resultType="com.kkodamkkodam.user.model.UserDTO">
+		SELECT * FROM USERS WHERE USER_NO = #{user_no}
+	</select>
+	
+	<!-- 정보 수정 -->
+	<update id="update" parameterType="com.kkodamkkodam.user.model.UserDTO">
+		UPDATE USERS SET PW = #{pw}, NAME = #{name} WHERE USER_NO = #{user_no}
+	</update>
+	
+	<!-- 탈퇴 -->
+	<delete id="delete" parameterType="int">
+		DELETE FROM BOARD WHERE USER_NO = #{user_no}
+	</delete>
+
+</mapper>

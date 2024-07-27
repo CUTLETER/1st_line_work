@@ -19,12 +19,8 @@
             </div>
         </div>
 
-        <h3>안성 AJ렌탈 서비스 질문있습니다!</h3>
-        <p class="post-content">
-
-            집가고싶다집가고싶다집가고싶다집가고싶다<br>
-            집가고싶다집가고싶다집가고싶다집가고싶다
-        </p>
+        <h3>${dto.title}</h3>
+        <p class="post-content">${dto.content}</p>
 
         <div class="post-info">
             <span class="icon">
@@ -32,13 +28,13 @@
                     visibility
                 </span>
             </span>
-            <span class="num">2000</span>
+            <span class="num">${dto.viewCount}</span>
             <span class="icon">
                 <span class="material-symbols-outlined" style="font-size:18px;">
                     thumb_up
                 </span>
             </span>
-            <span class="num">2</span>
+            <span class="num">${dto.likeCount}</span>
             <span class="icon">
                 <span class="material-symbols-outlined" style="font-size:18px;">
                     chat
@@ -50,7 +46,7 @@
     <div class="comment-bigbox">
         <span class="comment-input">
             <input type="text"></input>
-            <button><span class="material-symbols-outlined" style="font-size:18px;"> edit</span></button>
+            <button onclick="location.href='commentWrite.board'"><span class="material-symbols-outlined" style="font-size:18px;"> edit</span></button>
         </span>
         <div class="comment-box">
             <div class="comment">
