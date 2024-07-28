@@ -39,7 +39,11 @@ button{
     background-color: transparent;
     cursor: pointer;
 }
+textarea {
+    resize: none;
+}
 #wrapped{
 	width: 1180px;
 	margin: 0 auto;
 }
+

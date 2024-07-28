@@ -6,7 +6,7 @@
 <mapper namespace="com.kkodamkkodam.user.model.UserMapper">
 	
 	<!-- 중복 검사 -->
-	<select id="checkId" resultType="com.kkodamkkodam.user.model.UserDTO">
+	<select id="checkId" parameterType="string" resultType="com.kkodamkkodam.user.model.UserDTO">
 		SELECT * FROM USERS WHERE ID = #{id}
 	</select>
 	
@@ -17,8 +17,8 @@
 	</insert>
 	
 	<!-- 로그인 -->
-	<select id="login" parameterType="com.kkodamkkodam.user.model.UserDTO" resultType="com.kkodamkkodam.user.model.UserDTO">
-		SELECT * FROM USERS WHERE ID = #{id} AND PW = #{pw}
+	<select id="login" parameterType="map" resultType="com.kkodamkkodam.user.model.UserDTO">
+		SELECT * FROM USERS WHERE ID = #{id} AND PW = #{pw} AND DELETED = 'N'
 	</select>
 	
 	<!-- 정보 조회 -->
@@ -28,12 +28,11 @@
 	
 	<!-- 정보 수정 -->
 	<update id="update" parameterType="com.kkodamkkodam.user.model.UserDTO">
-		UPDATE USERS SET PW = #{pw}, NAME = #{name} WHERE USER_NO = #{user_no}
+		UPDATE USERS SET PW = #{pw}, NAME = #{name} WHERE ID = #{id}
 	</update>
 	
 	<!-- 탈퇴 -->
-	<delete id="delete" parameterType="int">
-		DELETE FROM BOARD WHERE USER_NO = #{user_no}
-	</delete>
-
+    <update id="delete" parameterType="string">
+        UPDATE USERS SET DELETED = 'Y' WHERE ID = #{id}
+    </update>
 </mapper>

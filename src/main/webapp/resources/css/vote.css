@@ -39,7 +39,7 @@ html, body {
 * {
     padding: 0;
     margin: 0;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 #wrapped {width: 1180px; margin: 0 auto;}

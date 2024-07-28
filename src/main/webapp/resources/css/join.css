@@ -1,10 +1,6 @@
-#wrapped {
-	position : relative;
-}
-
 .join-page {
     width: 500px;
-    height: 700px;
+    height: 600px;
     margin: 0 auto;
     border: 0.5px solid #ccc;
     display: flex;
@@ -24,14 +20,19 @@
     position: relative;
 }
 
-.join-box > div .id-input {
+.join-box > div > .id-check {
     width: 230px;
+    background-color: #fff;
 }
 
 
-.join-box > div .id-input:hover {
+.join-box > div > .id-check:hover {
     border: 0.25px solid #00AFB9;
     outline: none;
+}
+
+input:-internal-autofill-selected {
+    background-color: #fff;
 }
 
 /*아이콘*/
@@ -46,29 +47,28 @@
     color: #f07167;
 }
 
-.join-box > .user-icon1 {
+.join-box > div > .user-icon1 {
     top: 9px;
     left: 7px;
 }
 
-.join-box > .user-icon2 {
-    top: 69px;
+.join-box > div > .user-icon2 {
+    top: 89px;
     left: 7px;
 }
 
-.join-box > .user-icon3 {
-    top: 129px;
+.join-box > div > .user-icon3 {
+    top: 149px;
     left: 7px;
 }
 
-.join-box > .user-icon4 {
-    top: 189px;
+.join-box > div > .user-icon4 {
+    top: 209px;
     left: 7px;
 }
-
 
 /*중복 확인 버튼*/
-.join-box .check-btn {
+.join-box > div > .check-btn {
     position: absolute;
     width: 60px;
     height: 30px;
@@ -85,7 +85,7 @@
 
 
 /*입력창*/
-.join-box .join-input {
+.join-box > div > .join-input {
     display: block;
     border: 0.25px solid #ccc;
     border-radius: 3px;
@@ -114,5 +114,4 @@
     font-size: 15px;
     font-family: 'NanumBarunGothic', sans-serif;    
 }
-
 

@@ -12,6 +12,24 @@ public class UserDTO {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	public UserDTO(Long userNo, String pw, String name) {
+		super();
+		this.userNo = userNo;
+		this.pw = pw;
+		this.name = name;
+	}
+	
+	
+	public UserDTO(Long userNo, String id, String pw, String name) {
+		super();
+		this.userNo = userNo;
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+	}
+
+
 	public UserDTO(String id, String pw, String name) {
 		super();
 		this.id = id;

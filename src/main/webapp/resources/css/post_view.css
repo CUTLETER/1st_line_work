@@ -1,28 +1,16 @@
-.user-bigbox {
+.flex{
     display: flex;
 }
+.flex-col{
+	flex-direction: column;
+}
+.flex-1{
+	flex: 1 1 0%;
+}
+
 #wrapped{
 	position: relative;
 }
-.user-bigbox > img{
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 5px;
-    margin-bottom: 10px;
-}
-.user-bigbox > .user-box{
-    margin: auto 0;
-}
-.user-bigbox > .user-box > .user span{
-    position: relative;
-    top: -2px;
-    font-size: 0.5em;
-    color: red;
-    display: inline-block;
-}
-
-
-
 #wrapped > .board-type{
     border-bottom: 2px solid rgb(0, 0, 0,0.2);
     margin-bottom: 15px;
@@ -58,13 +46,41 @@
     font-size: 0.8em;
 }
 
-
+.user-bigbox {
+    display: flex;
+}
+.user-bigbox > img{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+.user-bigbox > .user-box{
+    margin: auto 0;
+}
+.user-bigbox .user-box .user span{
+    position: relative;
+    top: -2px;
+    font-size: 0.5em;
+    color: red;
+    display: inline-block;
+}
+.comment-icon .icon{
+	position: relative;
+}
+.comment-icon .icon > span{
+	position: absolute;
+}
+.comment-icon .num {
+    margin-left: 22px;
+    font-size: 0.8em;
+}
 .comment-bigbox{
     margin-top: 20px;
     padding: 20px;
     border-top: 1px solid #eee;
 }
-.comment-bigbox > .comment-input{
+.comment-bigbox .comment-input{
     margin: 0 auto;
     width: 1000px;
     height: 30px;
@@ -73,14 +89,14 @@
     border-right:0;
     margin-bottom: 20px;
 }
-.comment-bigbox > .comment-input > input[type="text"]{
+.comment-bigbox .comment-input > input[type="text"]{
     box-sizing: border-box;
     width: 95%;
     height: 100%;
     padding: 0;
     margin: 0;
 }
-.comment-bigbox > .comment-input > button{
+.comment-bigbox .comment-input > button{
     box-sizing: border-box;
     width: 5%;
     background-color: transparent;
@@ -88,14 +104,17 @@
     border: 1px solid black;
 }
 
-.comment-bigbox > .comment-input > button >span{
-  margin-top: 7px;
+.comment-bigbox .comment-input > button >span{
+  margin-top: 6px;
 }
-.comment-bigbox > .comment-box > .comment{
+.comment-bigbox > .comment-box .comment{
     border-bottom: 1px solid #eee;
     padding-top: 8px;
 }
-.comment-bigbox > .comment-box .comment-content{
+.comment-bigbox > .comment-box .comment .commentWrite{
+	color: #888;
+} 
+.comment-bigbox > .comment-box .comment .comment-content{
     padding-left: 5px;
     padding-top: 5px;
     padding-bottom: 15px;
@@ -103,3 +122,13 @@
 .comment-bigbox .reply{
     background-color: #F8F8F8;
 }
+
+.comment-bigbox .reply-write form{
+	flex: 1;
+	margin: 0; /* 기본 마진 제거 */
+}
+.comment-bigbox .reply-write textarea {
+    width: 100%; 
+    height: 100%; 
+    box-sizing: border-box; 
+  }

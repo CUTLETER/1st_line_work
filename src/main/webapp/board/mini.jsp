@@ -6,9 +6,9 @@
 
 <div id="wrapped">
 	<div class="top">
-		<button type="button" class="btn_round" onclick="location.href='#'">미니게시판
-			전체보기</button>
+		<button type="button" class="btn_round" onclick="location.href='${pageContext.request.contextPath }/board/mini.jsp'">게시 전체보기</button>
 	</div>
+
 	<nav>
 		<div id="mini">
 			<div id="mini_wrap" class="mini_listwrap"></div>

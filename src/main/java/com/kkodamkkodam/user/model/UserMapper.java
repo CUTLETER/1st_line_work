@@ -15,8 +15,9 @@ public interface UserMapper {
 	public UserDTO getInfo (int userNo);
 	
 	public int update(UserDTO dto);
+
+	public int delete(@Param("id") String id);
 	
-	public void delete (int userNo);
 
 	
 }

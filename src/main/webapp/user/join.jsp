@@ -17,14 +17,14 @@
 					placeholder=" 이메일" class="join-input id-input" name="id">
 				<button type="button" class="check-btn" onclick="checkId()">중복 확인</button>
 				<i class="fa-solid fa-lock user-icon2"></i> <label></label><input type="password"
-					placeholder=" 비밀번호" class="join-input" name="pw" required="required"> <i
+					placeholder=" 비밀번호 - 특수문자 제외 6자 이상" class="join-input" name="pw" required="required" pattern="[0-9A-Za-z]{6,}"> <i
 					class="fa-solid fa-lock user-icon3"></i> <input type="password"
-					placeholder=" 비밀번호 확인" class="join-input" name="rePw" required="required"> <i
+					placeholder=" 비밀번호 확인" class="join-input" name="rePw" required="required" pattern="[0-9A-Za-z]{6,}"> <i
 					class="fa-regular fa-user user-icon4"></i> <input type="text"
 					placeholder=" 닉네임" class="join-input" name="name"> 
 			</div>
 		</div>
-		<p style="font-size : 13px; colo : red;">${message }</p>
+		<p style="font-size : 13px; color : red;" class="idCheck"></p>
 		<div>
 			<button type="submit" class="join-btn">회원
 				가입</button>
@@ -33,20 +33,31 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-	var id = document.querySelector("input[name=id]").value;
-	var url = "/kkodamkkodam/user/join.jsp";
-	function checkId() {	
-		fetch(url, {
-			method : "post",
-			headers : {"Content-type" : "application/json", "X-Requested-With": "XMLHttpRequest"},
-			body : JSON.stringify({id: id})
-		}).then(function(response) {
-			response.json();
-		}).then(function(id) {
-			document.getElementById("message").textContent = data.message;
-		})
-	}
+<script>
+	var checkId = function() {
+	  var id = document.querySelector("input[name=id]").value;
+	  var idCheck = document.querySelector(".idCheck");
+
+	  if (id.trim() == "") { // 공백이어도 사용 가능하다고 떠서 추가함
+	    idCheck.textContent = "아이디를 입력해주세요.";
+	    return;
+	  }
+
+	  var url = "joinForm.user?action=checkId&id=" + encodeURIComponent(id);
+
+	  fetch(url)
+	    .then(function(response) {
+	      return response.text();
+	    })
+	    .then(function(result) {
+	      idCheck.textContent = result;
+	    })
+	    .catch(function(error) {
+	      idCheck.textContent = "오류가 발생했습니다.";
+	      console.error('Error:', error);
+	    });
+	};
 </script>
+
 
 <%@ include file="../include/footer.jsp"%>
