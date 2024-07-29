@@ -51,7 +51,7 @@
       <section id="board-title" class="title">
         <div class="wrap" >
           <div class="left">
-          <h4 class="board-connected"><c:out value="${list[0].boardType}" /> 게시판</h4>
+          <h4 class="board-connected"><c:out value="${boardType}" /> 게시판</h4>
         </div>
         <div class="input-group right">
             <input type="text" class="form-control" placeholder="Search">

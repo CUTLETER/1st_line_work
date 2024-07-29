@@ -4,7 +4,9 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kkodamkkodam.board.model.BoardMapper">
-
+	<select id="getboardType" resultType="String">
+		SELECT board_type from board where board_id=#{boardId}
+	</select>
 	<select id="getList" resultType="com.kkodamkkodam.board.model.BoardDTO">
 		SELECT 
 		    p.post_no,
@@ -24,13 +26,42 @@
 	<select id="getContent" resultType="com.kkodamkkodam.board.model.BoardDTO">
 		SELECT * FROM post WHERE board_id = #{boardId} AND POST_No = #{postNo}
 	</select>
+	<select id="getComment" resultType="com.kkodamkkodam.board.model.CommentDTO">
+		SELECT
+		    c.user_no,
+		    c.comment_content,
+		    c.regdate,
+		    c.like_count,
+		    c.parent_id,
+		    COUNT(*) OVER (PARTITION BY c.post_no) AS comment_count
+		FROM post p
+		join post_comment c
+		on p.post_no=c.post_no
+		WHERE p.board_id = 1 AND p.POST_No = 1
+	</select>
 	<update id="increaseView" parameterType="Map">
 		UPDATE post SET VIEW_COUNT = VIEW_COUNT + 1 WHERE board_id = #{boardId} AND POST_No = #{postNo}
 	</update>
+	<insert id="commentWrite" parameterType="com.kkodamkkodam.board.model.CommentDTO">
+		INSERT INTO POST_COMMENT (
+		    USER_NO,
+		    BOARD_ID,
+		    POST_NO,
+		    COMMENT_CONTENT,
+		    REGDATE
+		) VALUES (
+		    #{userNo},                         
+		    #{boardId},
+		    #{postNo},                     
+		    #{commentContent},       
+		    SYSTIMESTAMP
+		)
+	</insert>
 	
-	<update id="commentWrite" parameterType="Map">
-	</update>
-	
+	<insert id="miniWrite" parameterType="Map">
+		INSERT INTO POST (POST_NO, USER_NO, BOARD_ID, TITLE, VIEW_COUNT, REGDATE, CONTENT) VALUES ({#postNo}, #{userNo}, #{boardId}, #{title}, {#viewCount}, SYSDATE, {#content})
+	</insert>
+		
 </mapper>
 
 

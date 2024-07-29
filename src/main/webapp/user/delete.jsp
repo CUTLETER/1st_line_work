@@ -6,6 +6,7 @@
 
 
 <div id="wrapped">
+	<form id="deleteForm" action="${pageContext.request.contextPath}/user/delete_check.user" method="post">
 	<div class="delete-page">
 		<div>
 			<h3>탈퇴 안내</h3>
@@ -42,30 +43,28 @@
 				탈퇴 후에는 같은 아이디(ID)로 다시 가입할 수 없으며 아이디와 데이터는 복구할 수 없습니다.<br> 게시판형
 				서비스에 남아 있는 게시글은 탈퇴 후 삭제할 수 없습니다.
 			</p>
-			<a href="#"> <input type="checkbox" name="check"
+			<input type="checkbox" name="check"
 				style="accent-color: #ddd;"> 안내 사항을 모두 확인하였으며, 이에 동의합니다.
-			</a>
 		</div>
 		<div class="delete-btn">
-			<button type="button" onclick="location.href = '${pageContext.request.contextPath }/user/delete_check.user'" class="check-btn">확인</button>
+			<button type="button" class="check-btn">확인</button>
 		</div>
-	</div>
+		</div>
+	</form>
 </div>
 
-
 <script type="text/javascript">
-	var check = document.querySelector("input[name=check]");
-	var checkBtn = document.querySelector(".check-btn");
-	
-	checkBtn.onclick = function() {
-	
-	if (!check.checked) {
-		alert('동의해 주세요.');
-		return false;
-	} else {
-		window.href='${pageContext.request.contextPath }/user/delete_check.user'; 
-	}
-}
+    var check = document.querySelector("input[name=check]");
+    var checkBtn = document.querySelector(".check-btn");
+    
+    checkBtn.onclick = function() {
+        if (!check.checked) {
+            alert('동의해 주세요.');
+            return false;
+        } else {
+        	document.getElementById("deleteForm").submit();
+        }
+    }
 </script>
 
 <%@ include file="../include/footer.jsp"%>
