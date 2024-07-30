@@ -5,25 +5,26 @@ import java.sql.Timestamp;
 public class BoardDTO {
 	
 	//테이블의 컬럼명과 동일하게 멤버변수 선언합니다.
-	private int postNo;
-	private int userNo;
-	private int boardId;
+	private Long postNo;
+	private Long userNo;
+	private Long boardId;
 	private String title;
-	private int viewCount;
+	private Long viewCount;
 	private Timestamp regdate;
-	private int likeCount;
+	private Long likeCount;
 	private String content;
 	private String codeLanguage;
 	private String codeContent;
 	private String boardType;
 	private String boardCategory;
+	private Long commentCount;
 	
 	public BoardDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
-	public BoardDTO(int postNo, int userNo, int boardId, String title, int viewCount, Timestamp regdate, int likeCount,
-			String content, String codeLanguage, String codeContent, String boardType, String boardCategory) {
+	public BoardDTO(Long postNo, Long userNo, Long boardId, String title, Long viewCount, Timestamp regdate,
+			Long likeCount, String content, String codeLanguage, String codeContent, String boardType,
+			String boardCategory, Long commentCount) {
 		super();
 		this.postNo = postNo;
 		this.userNo = userNo;
@@ -37,29 +38,30 @@ public class BoardDTO {
 		this.codeContent = codeContent;
 		this.boardType = boardType;
 		this.boardCategory = boardCategory;
+		this.commentCount = commentCount;
 	}
 
-	public int getPostNo() {
+	public Long getPostNo() {
 		return postNo;
 	}
 
-	public void setPostNo(int postNo) {
+	public void setPostNo(Long postNo) {
 		this.postNo = postNo;
 	}
 
-	public int getUserNo() {
+	public Long getUserNo() {
 		return userNo;
 	}
 
-	public void setUserNo(int userNo) {
+	public void setUserNo(Long userNo) {
 		this.userNo = userNo;
 	}
 
-	public int getBoardId() {
+	public Long getBoardId() {
 		return boardId;
 	}
 
-	public void setBoardId(int boardId) {
+	public void setBoardId(Long boardId) {
 		this.boardId = boardId;
 	}
 
@@ -71,11 +73,11 @@ public class BoardDTO {
 		this.title = title;
 	}
 
-	public int getViewCount() {
+	public Long getViewCount() {
 		return viewCount;
 	}
 
-	public void setViewCount(int viewCount) {
+	public void setViewCount(Long viewCount) {
 		this.viewCount = viewCount;
 	}
 
@@ -87,11 +89,11 @@ public class BoardDTO {
 		this.regdate = regdate;
 	}
 
-	public int getLikeCount() {
+	public Long getLikeCount() {
 		return likeCount;
 	}
 
-	public void setLikeCount(int likeCount) {
+	public void setLikeCount(Long likeCount) {
 		this.likeCount = likeCount;
 	}
 
@@ -134,4 +136,14 @@ public class BoardDTO {
 	public void setBoardCategory(String boardCategory) {
 		this.boardCategory = boardCategory;
 	}
+
+	public Long getCommentCount() {
+		return commentCount;
+	}
+
+	public void setCommentCount(Long commentCount) {
+		this.commentCount = commentCount;
+	}
+	
+	
 }

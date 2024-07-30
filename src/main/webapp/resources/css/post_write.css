@@ -29,6 +29,14 @@
     background-color: #00AFB9; border-color: #00AFB9;
 }
 
+.form-group > .input-group {
+	width : 400px;
+}
 
-
+.form-control:focus {
+	border-color : #ccc;
+	outline : 0;
+	box-shadow : none;
+	-webkit-box-shadow : none;
+}
 

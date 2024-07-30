@@ -3,6 +3,8 @@ package com.kkodamkkodam.board.model;
 import java.sql.Timestamp;
 
 public class CommentDTO {
+	
+	private Long commentNo;
     private Long userNo;
     private Long boardId;
     private Long postNo;
@@ -11,14 +13,16 @@ public class CommentDTO {
     private Integer likeCount;
     private Long parentId;
     private Integer commentCount;
+    private String boardType;
     
     public CommentDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CommentDTO(Long userNo, Long boardId, Long postNo, String commentContent, Timestamp regDate,
-			Integer likeCount, Long parentId, Integer commentCount) {
+	public CommentDTO(Long commentNo, Long userNo, Long boardId, Long postNo, String commentContent, Timestamp regDate,
+			Integer likeCount, Long parentId, Integer commentCount, String boardType) {
 		super();
+		this.commentNo = commentNo;
 		this.userNo = userNo;
 		this.boardId = boardId;
 		this.postNo = postNo;
@@ -27,6 +31,15 @@ public class CommentDTO {
 		this.likeCount = likeCount;
 		this.parentId = parentId;
 		this.commentCount = commentCount;
+		this.boardType = boardType;
+	}
+
+	public Long getCommentNo() {
+		return commentNo;
+	}
+
+	public void setCommentNo(Long commentNo) {
+		this.commentNo = commentNo;
 	}
 
 	public Long getUserNo() {
@@ -91,6 +104,14 @@ public class CommentDTO {
 
 	public void setCommentCount(Integer commentCount) {
 		this.commentCount = commentCount;
+	}
+
+	public String getBoardType() {
+		return boardType;
+	}
+
+	public void setBoardType(String boardType) {
+		this.boardType = boardType;
 	}
 
 	

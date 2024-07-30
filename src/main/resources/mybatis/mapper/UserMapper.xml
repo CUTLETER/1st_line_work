@@ -21,11 +21,6 @@
 		SELECT * FROM USERS WHERE ID = #{id} AND PW = #{pw} AND DELETED = 'N'
 	</select>
 	
-	<!-- 정보 조회 -->
-	<select id="getPost" resultType="com.kkodamkkodam.user.model.UserDTO">
-		SELECT * FROM USERS WHERE USER_NO = #{user_no}
-	</select>
-	
 	<!-- 정보 수정 -->
 	<update id="update" parameterType="com.kkodamkkodam.user.model.UserDTO">
 		UPDATE USERS SET PW = #{pw}, NAME = #{name} WHERE ID = #{id}
@@ -34,5 +29,15 @@
 	<!-- 탈퇴 -->
     <update id="delete" parameterType="string">
         UPDATE USERS SET DELETED = 'Y' WHERE ID = #{id}
+    </update>
+    
+    <!-- 계정 조회 -->
+    <select id="find" parameterType="map" resultType="com.kkodamkkodam.user.model.UserDTO">
+    	SELECT * FROM USERS WHERE ID = #{id} AND NAME = #{name}
+    </select>
+    
+    <!-- 비밀번호 변경 -->
+    <update id="change" parameterType="com.kkodamkkodam.user.model.UserDTO">
+    	UPDATE USERS SET PW = #{pw} WHERE ID = #{id}
     </update>
 </mapper>

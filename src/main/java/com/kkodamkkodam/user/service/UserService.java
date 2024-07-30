@@ -19,17 +19,15 @@ public interface UserService {
 	// 로그인
 	void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	
-	// 내가 쓴 조회
-	void getPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
-	
-	// 내가 쓴 댓글 조회
-	void getComment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
-	
 	// 정보 수정
 	void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 
 	// 탈퇴
 	void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	
+	// 비밀번호 찾기 전 계정 조회
+	void find(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; 
 	
+	// 비밀번호 변경
+	void change(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException; 
 }

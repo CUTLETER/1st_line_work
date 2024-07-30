@@ -53,12 +53,13 @@
 
 
 /*내가 쓴 글 내용*/
+/*
 .board > thead > tr > .td_check {
     width: 10%;
 }
-
+*/
 .board > thead > tr > td.num {
-    width: 10%;
+    width: 20%;
 }
 
 .board > thead > tr > td.subject {

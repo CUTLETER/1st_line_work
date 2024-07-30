@@ -16,7 +16,7 @@
                     <i class="fa-solid fa-lock user-icon2"></i> <input type="password"
                         placeholder=" 비밀번호 - 특수문자 제외 6자 이상" class="modify-input" name="pw" required="required" pattern="[0-9A-Za-z]{6,}"> <i
                         class="fa-solid fa-lock user-icon3"></i> <input type="password"
-                        placeholder=" 비밀번호 확인" class="modify-input" name="rePw"> <i
+                        placeholder=" 비밀번호 확인" class="modify-input" name="rePw" required="required" pattern="[0-9A-Za-z]{6,}"> <i
                         class="fa-regular fa-user user-icon4"></i> <input type="text"
                         class="modify-input"  name="name" value="${user.name }">
                 </div>

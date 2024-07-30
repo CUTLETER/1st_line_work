@@ -12,12 +12,12 @@ public interface UserMapper {
 	
 	public UserDTO login(@Param("id") String id, @Param("pw") String pw);
 	
-	public UserDTO getInfo (int userNo);
-	
 	public int update(UserDTO dto);
 
 	public int delete(@Param("id") String id);
 	
+	public UserDTO find(@Param("id") String id, @Param("name") String name);
 
+	public int change(UserDTO dto);
 	
 }

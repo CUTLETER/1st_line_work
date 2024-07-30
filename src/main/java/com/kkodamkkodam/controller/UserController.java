@@ -52,8 +52,6 @@ public class UserController extends HttpServlet{
 	    	request.getRequestDispatcher("modify.jsp").forward(request, response);
 	    } else if (command.equals("/user/modifyForm.user")) {
 	    	service.update(request, response);
-	    } else if (command.equals("/user/mypage.user")) {
-	    	request.getRequestDispatcher("mypage.jsp").forward(request, response);
 	    } else if (command.equals("/user/logout.user")) {
 			HttpSession session = request.getSession();
 			session.invalidate();
@@ -64,6 +62,10 @@ public class UserController extends HttpServlet{
 			request.getRequestDispatcher("delete_check.jsp").forward(request, response);
 		} else if (command.equals("/user/deleteForm.user")) {
 			service.delete(request, response);
+		} else if (command.equals("/user/findForm.user")) {
+			service.find(request, response);
+		} else if (command.equals("/user/changeForm.user")) {
+			service.change(request, response);
 		}
 	}
 }

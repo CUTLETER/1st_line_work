@@ -7,6 +7,18 @@
 .flex-1{
 	flex: 1 1 0%;
 }
+.justify-end{
+	justify-content: flex-end;
+}
+
+.dropdown{
+	display: inline-block;
+	height: 30px;
+}
+.dropdown .dropdown-menu{
+	min-width: 0;
+	left:-30px;
+}
 
 #wrapped{
 	position: relative;
@@ -31,18 +43,21 @@
 #wrapped > .post > .post-info > .icon{
     position: relative;
 }
-#wrapped > .post > .post-info > .icon > img{
-    position: absolute;
-    top: 50%; 
-    transform: translateY(-50%); 
+#wrapped > .post > .post-info > .icon{
+    position: relative;
+}
+
+#wrapped > .post > .post-info > a.icon{
+	cursor: pointer;
 }
 #wrapped > .post > .post-info > .icon > span{
     position: absolute; 
     top: 50%; 
-    transform: translateY(-50%); 
+    transform: translateY(-46%); 
 }
 #wrapped > .post > .post-info > .num {
-    margin-left: 22px;
+    margin-left: 23px;
+    margin-right: 7px;
     font-size: 0.8em;
 }
 
@@ -61,19 +76,19 @@
 .user-bigbox .user-box .user span{
     position: relative;
     top: -2px;
-    font-size: 0.5em;
+    font-size: 0.7em;
     color: red;
     display: inline-block;
 }
-.comment-icon .icon{
-	position: relative;
-}
-.comment-icon .icon > span{
-	position: absolute;
+.comment-icon .icon {
+    margin-right: 3px;
 }
 .comment-icon .num {
-    margin-left: 22px;
+	position:relative;
+	top: -5px;
     font-size: 0.8em;
+    left: -3px;
+    margin-right: 5px;
 }
 .comment-bigbox{
     margin-top: 20px;
@@ -111,13 +126,13 @@
     border-bottom: 1px solid #eee;
     padding-top: 8px;
 }
-.comment-bigbox > .comment-box .comment .commentWrite{
+.comment-bigbox > .comment-box .comment .reply-write-btn{
 	color: #888;
 } 
 .comment-bigbox > .comment-box .comment .comment-content{
     padding-left: 5px;
     padding-top: 5px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
 }
 .comment-bigbox .reply{
     background-color: #F8F8F8;
@@ -128,7 +143,31 @@
 	margin: 0; /* 기본 마진 제거 */
 }
 .comment-bigbox .reply-write textarea {
-    width: 100%; 
+    width: 100%;
     height: 100%; 
     box-sizing: border-box; 
-  }
+ }
+  
+.reply-write .userImg img{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+.reply-write .reply-submit-cancel-btn .reply-submit-btn{
+    box-sizing: border-box;
+    width: 5%;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid black;
+}
+.reply-write .reply-submit-cancel-btn .reply-submit-btn >span{
+  margin-top: 6px;
+}
+.reply-write .reply-submit-cancel-btn .reply-cancel-btn{
+    box-sizing: border-box;
+    width: 5%;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid black;
+}

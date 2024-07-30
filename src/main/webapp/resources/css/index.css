@@ -3,6 +3,16 @@
 	line-height: normal;
 	
 }
+.flex{
+	display: flex;
+}
+.flex-1{
+	flex: 1 1 0%;
+}
+.justify-end{
+	justify-content: flex-end;
+}
+
 .icon{
     position: relative;
 }
@@ -41,7 +51,7 @@
     flex-wrap: wrap;
 }
 
-.home-list > .best-list{
+.home-list .best-list{
     position: relative;
     margin-top: 35px;
     width: 100%;
