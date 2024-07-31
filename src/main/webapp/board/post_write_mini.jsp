@@ -68,7 +68,7 @@
 	        </div>
 	
 	        <div class="btn-wrap btns">
-	            <button type="submit" class="btn btn-default right">등록</button>
+	            <button type="submit" class="btn btn-default right" style="background-color: #00AFB9; color: #fff;">등록</button>
 	            <button type="button" class="btn btn-default right" onclick="location.href='${pageContext.request.contextPath }/index.jsp'">취소</button>
 	        </div>
 	    </form>

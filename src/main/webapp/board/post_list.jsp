@@ -47,17 +47,7 @@
             </a>
           </div>
       </article>
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel"
-				data-slide="next"> <span
-				class="glyphicon glyphicon-chevron-right"></span> <span
-				class="sr-only">Next</span>
-			</a>
-		</div>
-	</article>
+			
 
 	<section id="board-title" class="title">
 		<div class="wrap">
@@ -107,7 +97,7 @@
 	<div style="text-align: right;">
 		<button type="button" class="btn btn-info"
 			style="margin-right: 25px; margin-top: 15px; min-width: 70px"
-			onclick="location.href='post_write.board?boardId=${boardId}'">글쓰기</button>
+			onclick="selectPage()">글쓰기</button>
 	</div>
 	<div class="pagination-wrap">
 		<ul class="pagination page-number">
@@ -122,4 +112,13 @@
 	</div>
 </div>
 
+
 <%@ include file="../include/footer.jsp"%>
+
+<script>
+    function selectPage() {
+      var boardId = '<c:out value="${boardId}"/>'; 
+      var url = (boardId == 3) ? '/kkodamkkodam/board/post_code_write.board' : '/kkodamkkodam/board/post_write.board';
+      window.location.href = url + '?boardId=' + boardId;
+    }
+  </script>

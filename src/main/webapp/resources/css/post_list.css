@@ -8,6 +8,17 @@
     background-image: none;
 }
 
+/* 글쓰기 버튼 UI 추가 */
+#wrapped > div > .btn-info {
+	background-color: #00AFB9;
+	border-color: #00AFB9;
+	border-radius: 0;
+}
+#wrapped > div > .btn-info:hover {
+	background-color: #00AFB9;
+	border-color: #00AFB9;
+}
+
 /* 게시글 조회 */
 .wrap {
     display: flex;

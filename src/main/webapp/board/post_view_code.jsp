@@ -1,180 +1,223 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@ include file="../include/header.jsp" %>
+<%@ include file="../include/header.jsp"%>
 
-    <div id="wrapped">
-        <div class="board-type">
-            <p>게시판 종류</p>
-        </div>
-        <div class="post">
-            <div class="user-bigbox">
-                <img src="../resources/img/userCircle.png" alt="userCircle" style="width: 45px;">
-                <div class="user-box">
-                    <div class="user">
-                        <p>익명</p>
-                        <p>10분전</p>
-                    </div>
-                </div>
-            </div> 
-            
-            <h3>출력은 잘 나오는데 계속 채점이 안되네요</h3>
-            <p class="post-content">
-                testcase들은 다 통과하는데 채점에서 뭐가 문제인지 알려주시면 감사하겠습니다.
-            </p>
-            <pre><code class="language-java codebox">import java.io.*;
-import java.util.*;
-public class BJ26142 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
-        int[] D = new int[N];
-        long[] H = new long[N];
-        for (int i = 0; i < N; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            D[i] = Integer.parseInt(st.nextToken());
-            H[i] = Long.parseLong(st.nextToken());
-        }
-        long[] heights = new long[N];
-        for (int i = 0; i < N; i++) {
-            heights[i] = H[i];
-        }
-                
-        long cumulativeSum = 0;
-        for (int k = 1; k <= N; k++) {
-        // 현재 높이를 기준으로 maxHeap 초기화
-            PriorityQueue<Long> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-            for (int i = 0; i < N; i++) {
-                maxHeap.add(heights[i]);
-            }
-                
-            // 도둑이 최대 높이의 드래곤을 쏘는 경우
-            long maxCut = maxHeap.poll();
-            cumulativeSum += maxCut;
-            System.out.println(cumulativeSum);
-            // maxCut 높이를 가진 드래곤 찾기
-            for (int i = 0; i < N; i++) {
-                if (heights[i] == maxCut) {
-                    heights[i] = 0; // 높이를 0으로 설정
-                    break;
-                }
-            }
-            // heights 배열을 내림차순으로 정렬하여 다음 날을 준비
-            Long[] heightsWrapper = Arrays.stream(heights).boxed().toArray(Long[]::new);
-            Arrays.sort(heightsWrapper, Collections.reverseOrder());
-            heights = Arrays.stream(heightsWrapper).mapToLong(Long::longValue).toArray();
-                
-            // 모든 드래곤의 키를 D[i]만큼 증가
-            for (int i = 0; i < N; i++) {
-                heights[i] += D[i];
-            }
-        }
-        br.close();
-    }
-}</code></pre>
-            <div class="post-info">
-                <span class="icon" >
-                    <span class="material-symbols-outlined" style="font-size:18px;">
-                        visibility
-                        </span>
-                </span>
-                <span class="num">2000</span>
-                <span class="icon" >
-                    <span class="material-symbols-outlined" style="font-size:18px;">
-                        thumb_up
-                        </span>
-                </span>
-                <span class="num">2</span>
-                <span class="icon" >
-                    <span class="material-symbols-outlined" style="font-size:18px;">
-                        chat
-                        </span>
-                </span>
-                <span class="num">2</span>
-            </div>
-        </div> 
-        <div class="comment-bigbox">
-            <span class="comment-input">
-                <input type="text"></input>
-                <button><span class="material-symbols-outlined" style="font-size:18px;"> edit</span></button>
-            </span>
-            <div class="comment-box">
-                <div class="comment">
-                    <div class="user-bigbox">
-                        <img src="../resources/img/userCircle.png" alt="userCircle" style="width: 45px;">
-                        <div class="user-box">
-                            <div class="user">
-                                <p>익명</p>
-                                <p>10분전</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="comment-content">
-                        가가가가가가가가각
-                    </p>
-                </div>
-
-                <div class="comment reply">
-                    <div class="user-bigbox">
-                        <img src="../resources/img/userCircle.png" alt="userCircle" style="width: 45px;">
-                        <div class="user-box">
-                            <div class="user">
-                                <p>익명 <span>작성자</span></p>
-                                <p>10분전</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="comment-content">
-                        나나나나나나나나나나나나나나나나나나나나나나나
-                    </p>
-                </div>
-                <div class="comment reply">
-                    <div class="user-bigbox">
-                        <img src="../resources/img/userCircle.png" alt="userCircle" style="width: 45px;">
-                        <div class="user-box">
-                            <div class="user">
-                                <p>익명 <span>작성자</span></p>
-                                <p>10분전</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="comment-content">
-                        나나나나나나나나나나나나나나나나나나나나나나나
-                    </p>
-                </div>
-                <div class="comment">
-                    <div class="user-bigbox">
-                        <img src="../resources/img/userCircle.png" alt="userCircle" style="width: 45px;">
-                        <div class="user-box">
-                            <div class="user">
-                                <p>익명</p>
-                                <p>10분전</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="comment-content">
-                        가가가가가가가가가                    
-                    </p>
-                </div>
-                <div class="comment">
-                    <div class="user-bigbox">
-                        <img src="../resources/img/userCircle.png" alt="userCircle" style="width: 45px;">
-                        <div class="user-box">
-                            <div class="user">
-                                <p>익명</p>
-                                <p>10분전</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="comment-content">
-                        가가가가가가가가가
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </div>
+<div id="wrapped">
+	<div class="board-type">
+		<p>
+			<c:out value="${boardType}" />
+			게시판
+		</p>
+	</div>
+	<div class="post">
+		<div class="user-bigbox">
+			<img src="../resources/img/userCircle.png" alt="userCircle"
+				style="width: 45px;">
+			<div class="user-box flex-1">
+				<div class="user">
+					<p>익명</p>
+					<p>10분전</p>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="btn dropdown-toggle" type="button"
+					data-toggle="dropdown">
+					<span class="material-symbols-outlined">more_vert</span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a
+						href="updatePostPage.board?postNo=${dto.postNo}&boardId=${dto.boardId}">수정</a></li>
+					<li><a
+						href="deletePost.board?postNo=${dto.postNo}&boardId=${dto.boardId}">삭제</a></li>
+				</ul>
+			</div>
+		</div>
 
 
-<%@ include file="../include/footer.jsp" %>
+		<h3>${dto.title}</h3>
+		<p class="post-content"
+			style="white-space: pre-wrap; word-wrap: break-word;">${dto.content}</p>
+
+		<!-- 코드 하이라이트 시작 -->
+		<pre>
+			<code class="language-${dto.codeLanguage} codebox">${dto.codeContent}</code>
+		</pre>
+		<!-- 코드 하이라이트 끝 -->
+
+
+		<div class="post-info">
+			<span class="icon"> <span class="material-symbols-outlined"
+				style="font-size: 18px;"> visibility </span>
+			</span> <span class="num">${dto.viewCount}</span> <a class="icon"
+				href="increasePostLike.board?postNo=${dto.postNo}&boardId=${dto.boardId}">
+				<span class="material-symbols-outlined" style="font-size: 18px;">
+					thumb_up </span>
+			</a> <span class="num">${dto.likeCount}</span> <span class="icon">
+				<span class="material-symbols-outlined" style="font-size: 18px;">
+					chat </span>
+			</span> <span class="num">${dto.commentCount}</span>
+		</div>
+	</div>
+	<div class="comment-bigbox">
+		<%-- 댓글 입력창 --%>
+		<form action="commentWrite.board" method="post">
+			<span class="comment-input"> <input type="hidden"
+				name="boardId" value="${dto.boardId}"> <input type="hidden"
+				name="postNo" value="${dto.postNo}"> <input type="text"
+				name="commentContent"></input>
+				<button type="submit">
+					<span class="material-symbols-outlined" style="font-size: 18px;">
+						edit</span>
+				</button>
+			</span>
+		</form>
+		<div class="comment-box">
+			<%-- 댓글 출력 --%>
+			<c:forEach var="comment" items="${commentList}">
+				<div class="comment  ${comment.parentId != null ? 'reply' : ''}"
+					style="margin-left: ${comment.parentId == null ? '0' : '20'}px;">
+					<div class="user-bigbox flex">
+						<img src="../resources/img/userCircle.png" alt="userCircle"
+							style="width: 45px;">
+						<div class="user-box flex flex-1">
+							<div class="user flex flex-col">
+								<p>${comment.regDate != null ? '익명' : '(삭제)'}
+									<c:if test="${dto.userNo == comment.userNo}">
+										<span>작성자</span>
+									</c:if>
+								</p>
+								<p>10분전</p>
+							</div>
+						</div>
+						<div class="comment-icon">
+							<a class="icon"
+								href="increaseCommentLike.board?commentNo=${comment.commentNo}&postNo=${dto.postNo}&boardId=${dto.boardId}">
+								<span class="material-symbols-outlined" style="font-size: 18px;">
+									thumb_up </span>
+							</a> <span class="num">${comment.likeCount}</span> <a class="icon"
+								href="deleteComment.board?commentNo=${comment.commentNo}&postNo=${dto.postNo}&boardId=${dto.boardId}">
+								<span class="material-symbols-outlined" style="font-size: 18px;">
+									delete </span>
+							</a>
+						</div>
+					</div>
+					<p class="comment-content">${comment.commentContent}</p>
+					<%-- 대댓글 입력창 --%>
+					<button
+						class="reply-write-btn ${comment.parentId != null ? 'hidden' : ''}">
+						댓글 달기</button>
+					<div class="reply-write reply hidden">
+						<div class="flex">
+							<div class=userImg>
+								<img src="../resources/img/userCircle.png" alt="userCircle"
+									style="width: 45px;">
+							</div>
+							<div class="flex-1">
+								<form action="replyWrite.board" method="post">
+									<input type="hidden" name="boardId" value="${comment.boardId}">
+									<input type="hidden" name="postNo" value="${comment.postNo}">
+									<input type="hidden" name="parentId"
+										value="${comment.commentNo}">
+									<textarea placeholder="댓글을 입력하세요" name="commentContent"></textarea>
+									<div class="flex justify-end reply-submit-cancel-btn">
+										<button type="submit" class="reply-submit-btn">
+											<span class="material-symbols-outlined"
+												style="font-size: 18px;"> edit</span>
+										</button>
+										<button class=reply-cancel-btn>취소</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$('.reply-write-btn').on('click', function() {
+			if ($(this).next('.reply-write').hasClass('hidden')) {
+				$(this).text('댓글 취소');
+			} else {
+				$(this).text('댓글 달기');
+			}
+			$(this).next('.reply-write').toggleClass('hidden');
+		});
+	});
+	document.addEventListener('DOMContentLoaded', (event) => {
+		  document.querySelectorAll('pre code').forEach((block) => {
+		    const language = block.className.replace('language-', '');
+		    block.parentNode.setAttribute('data-language', language);
+		    hljs.highlightBlock(block);
+		  });
+		});
+	
+	
+	
+	$(document).ready(function() {
+	    $('.reply-write-btn').on('click', function() {
+	    	if ( $(this).next('.reply-write').hasClass('hidden')){
+	    		$(this).text('댓글 취소');
+	    	}else{
+	    		$(this).text('댓글 달기');
+	    	}
+	        $(this).next('.reply-write').toggleClass('hidden');
+	    });
+	});
+
+	document.addEventListener('DOMContentLoaded', function() {
+	    const cancelButtons = document.querySelectorAll('.reply-cancel-btn');
+	    
+	    cancelButtons.forEach(button => {
+	        button.addEventListener('click', function(event) {
+	            event.preventDefault(); // 폼 제출 방지
+	            
+	            // 가장 가까운 .reply-write 클래스를 가진 상위 요소를 찾습니다
+	            const replyWriteDiv = this.closest('.reply-write');
+	            
+	            // .reply-write 요소가 존재하면 hidden 클래스를 추가합니다
+	            if (replyWriteDiv) {
+	                replyWriteDiv.classList.add('hidden');
+	            }
+	        });
+	    });
+	});
+
+	document.addEventListener('DOMContentLoaded', function() {
+	    const commentForm = document.querySelector('form[action="commentWrite.board"]');
+	    
+	    if (commentForm) {
+	        commentForm.addEventListener('submit', function(event) {
+	            const commentInput = this.querySelector('input[name="commentContent"]');
+	            
+	            if (!commentInput || commentInput.value.trim() === '') {
+	                event.preventDefault(); // 폼 제출 방지
+	                // 선택적: 사용자에게 시각적 피드백을 제공할 수 있습니다.
+	                // 예: commentInput.classList.add('error');
+	                // 또는 alert("댓글 내용을 입력해주세요.");
+	            }
+	        });
+	    }
+	 	const replyForms = document.querySelectorAll('form[action="replyWrite.board"]');
+	    
+	    replyForms.forEach(form => {
+	        form.addEventListener('submit', function(event) {
+	            const textarea = this.querySelector('textarea[name="commentContent"]');
+	            
+	            if (!textarea || textarea.value.trim() === '') {
+	                event.preventDefault(); // 폼 제출 방지
+	                // 선택적: 사용자에게 시각적 피드백을 제공할 수 있습니다.
+	                // 예: textarea.classList.add('error');
+	                // 또는 alert("댓글 내용을 입력해주세요.");
+	            }
+	        });
+	    });
+	});
+</script>
+
+<%@ include file="../include/footer.jsp"%>

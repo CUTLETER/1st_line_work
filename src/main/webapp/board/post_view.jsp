@@ -27,6 +27,8 @@
 			 	</ul>
 			</div>
         </div>
+        
+        
         <h3>${dto.title}</h3>
         <p class="post-content" style="white-space: pre-wrap; word-wrap: break-word;">${dto.content}</p>
 
@@ -48,7 +50,7 @@
                     chat
                 </span>
             </span>
-            <span class="num">2</span>
+            <span class="num">${dto.commentCount}</span>
         </div>
     </div>
     <div class="comment-bigbox">
@@ -132,6 +134,55 @@ $(document).ready(function() {
     		$(this).text('댓글 달기');
     	}
         $(this).next('.reply-write').toggleClass('hidden');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const cancelButtons = document.querySelectorAll('.reply-cancel-btn');
+    
+    cancelButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // 폼 제출 방지
+            
+            // 가장 가까운 .reply-write 클래스를 가진 상위 요소를 찾습니다
+            const replyWriteDiv = this.closest('.reply-write');
+            
+            // .reply-write 요소가 존재하면 hidden 클래스를 추가합니다
+            if (replyWriteDiv) {
+                replyWriteDiv.classList.add('hidden');
+            }
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const commentForm = document.querySelector('form[action="commentWrite.board"]');
+    
+    if (commentForm) {
+        commentForm.addEventListener('submit', function(event) {
+            const commentInput = this.querySelector('input[name="commentContent"]');
+            
+            if (!commentInput || commentInput.value.trim() === '') {
+                event.preventDefault(); // 폼 제출 방지
+                // 선택적: 사용자에게 시각적 피드백을 제공할 수 있습니다.
+                // 예: commentInput.classList.add('error');
+                // 또는 alert("댓글 내용을 입력해주세요.");
+            }
+        });
+    }
+ 	const replyForms = document.querySelectorAll('form[action="replyWrite.board"]');
+    
+    replyForms.forEach(form => {
+        form.addEventListener('submit', function(event) {
+            const textarea = this.querySelector('textarea[name="commentContent"]');
+            
+            if (!textarea || textarea.value.trim() === '') {
+                event.preventDefault(); // 폼 제출 방지
+                // 선택적: 사용자에게 시각적 피드백을 제공할 수 있습니다.
+                // 예: textarea.classList.add('error');
+                // 또는 alert("댓글 내용을 입력해주세요.");
+            }
+        });
     });
 });
 </script>

@@ -22,7 +22,7 @@
 					</h3>
 					<div class="list">
 						<ul>
-							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">${dto.boardType }</a></li>
 							<li><a href="#">에스파</a></li>
 							<li><a href="#">태연</a></li>
 							<li><a href="#">아이들</a></li>

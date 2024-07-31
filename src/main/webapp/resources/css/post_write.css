@@ -10,7 +10,41 @@
 /* 드답 다운 디자인 */
 .btn-wrap {overflow: hidden;}
 .btn-wrap > .right {float: right;}
-.btn {margin: 0 10px;}
+.btn {margin: 0 10px; width: 70px;} /* 버튼 너비 수정 */
+
+/* 버튼 UI 수정 */
+.btn-insert {
+	border-radius: 0;
+	border-color: #00AFB9;
+	background-color: #00AFB9;
+	color : #FFFFFF;
+	
+}
+.btn-insert:hover, .btn-insert:focus {
+	background-color: #00AFB9;
+	color : #FFFFFF;
+}
+.btn-back {
+	border-radius: 0;
+	background-color: #FFFFFF;
+}
+.btn-back:hover, .btn-back:focus {
+	background-color: #FFFFFF;
+}
+
+.btn-default.active.focus, 
+.btn-default.active:focus, 
+.btn-default.active:hover, 
+.btn-default:active.focus, 
+.btn-default:active:focus, 
+.btn-default:active:hover, 
+.open>.dropdown-toggle.btn-default.focus, 
+.open>.dropdown-toggle.btn-default:focus, 
+.open>.dropdown-toggle.btn-default:hover {
+	color: 0;
+	background-color: 0;
+	border-color: 0;
+}
 
 .btn-primary {background-color: #00AFB9;}
 
@@ -33,10 +67,15 @@
 	width : 400px;
 }
 
+
+/* 제목 UI 수정 */
+.form-group > .input-group {
+	width : 400px;
+}
+
 .form-control:focus {
 	border-color : #ccc;
 	outline : 0;
 	box-shadow : none;
 	-webkit-box-shadow : none;
 }
-

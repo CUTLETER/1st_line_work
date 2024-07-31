@@ -10,9 +10,11 @@ public interface BoardMapper {
   
 	public void postWrite(Map<String, Object> params); //글작성 화면
 	public void postRegi(BoardDTO postregi); //글 작성 등록
+	public void postCodeRegi(BoardDTO dto);								//코드 질문글 등록
 	public void updatePost(BoardDTO dto); 								//글 수정
 	public void deletePost(BoardDTO dto);								//글 삭제
-
+	public Long commentCount(BoardDTO dto);								//댓글 수 세기
+	
 	public BoardDTO getContent(Map<String, Object> params); 			//글 보기
 	public ArrayList<CommentDTO> getComment(Map<String, Object> params);//댓글 보기
 	public void increaseView(Map<String, Object> params); 				//조회수
@@ -28,6 +30,13 @@ public interface BoardMapper {
 	public void increaseVoteLike(MiniDTO dto); // 미니 신설 요청 글 좋아요 수
 	//////////////// 나린 /////////////
 	public void addVote(VoteDTO dto);
+	public void insertVoteYes(MiniDTO vote);
+	public void insertVoteNo(MiniDTO vote);
+	public void insertVote(VoteDTO vote);
+	public MiniDTO getMiniVote(MiniDTO vote);
+	public int hasUserVoted(Map<String, Object> params);
+
+
 	
 	// 내가 쓴 글 목록 조회
 	public ArrayList<BoardDTO> getPostsByUser(Long userNo);

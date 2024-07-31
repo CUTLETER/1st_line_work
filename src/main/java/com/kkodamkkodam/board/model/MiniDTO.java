@@ -12,12 +12,14 @@ public class MiniDTO {
 	private Long viewCount;
 	private Long userNo;
 	private Long likeCount;
-
+	private Long yes;
+	private Long no;
+	
 	public MiniDTO() {
 	}
 
 	public MiniDTO(Long postNo, String boardType, String boardCategory, String content, Timestamp regdate,
-			Long viewCount, Long userNo, Long likeCount) {
+			Long viewCount, Long userNo, Long likeCount, Long yes, Long no) {
 		super();
 		this.postNo = postNo;
 		this.boardType = boardType;
@@ -27,10 +29,11 @@ public class MiniDTO {
 		this.viewCount = viewCount;
 		this.userNo = userNo;
 		this.likeCount = likeCount;
-		
+		this.yes = yes;
+		this.no = no;
 	}
 
-	public Long getpostNo() {
+	public Long getPostNo() {
 		return postNo;
 	}
 
@@ -77,21 +80,39 @@ public class MiniDTO {
 	public void setViewCount(Long viewCount) {
 		this.viewCount = viewCount;
 	}
-	
-	public Long getuserNo() {
+
+	public Long getUserNo() {
 		return userNo;
 	}
-	
-	public void setuserNo(Long userNo) {
+
+	public void setUserNo(Long userNo) {
 		this.userNo = userNo;
 	}
-	
-	public Long getlikeCount() {
+
+	public Long getLikeCount() {
 		return likeCount;
 	}
-	
-	public void setlikeCount(Long likeCount) {
+
+	public void setLikeCount(Long likeCount) {
 		this.likeCount = likeCount;
 	}
+
+	public Long getYes() {
+		return yes;
+	}
+
+	public void setYes(Long yes) {
+		this.yes = yes;
+	}
+
+	public Long getNo() {
+		return no;
+	}
+
+	public void setNo(Long no) {
+		this.no = no;
+	}
+
+	
 
 }

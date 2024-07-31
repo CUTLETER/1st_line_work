@@ -21,153 +21,151 @@ public class UserServiceImpl implements UserService {
 	
 	private SqlSessionFactory sqlSessionFactory = MybatisUtil.getSqlSessionFactory();
 	
-// 중복 검사	
-	@Override
-	public void checkId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    String id = request.getParameter("id");
-	    SqlSession sqlSession = null;
+	// 중복 검사 - 최종 완성
+		@Override
+		public void checkId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		    String id = request.getParameter("id");
+		    SqlSession sqlSession = null;
 
-	    try {
-	        sqlSession = sqlSessionFactory.openSession();
-	        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		    try {
+		        sqlSession = sqlSessionFactory.openSession();
+		        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-	        response.setContentType("application/json;charset=UTF-8");
-	        PrintWriter out = response.getWriter();
+		        response.setContentType("application/json;charset=UTF-8");
+		        PrintWriter out = response.getWriter();
 
-	        UserDTO dto = mapper.checkId(id);
+		        UserDTO dto = mapper.checkId(id);
 
-	        if (dto != null) {
-	            out.print("{\"status\":\"fail\", \"message\":\"이미 존재하는 아이디입니다.\"}");
-	        } else {
-	            out.print("{\"status\":\"success\", \"message\":\"사용 가능한 아이디입니다.\"}");
-	        }
-	        
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        request.setAttribute("message", "다시 시도해 주세요.");
-	        request.getRequestDispatcher("join.jsp").forward(request, response);
-	    } finally {
-	        if (sqlSession != null) {
-	            sqlSession.close();
-	        }
-	    }
-	}
-	
-// 가입
-	@Override
-	public void join(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    String action = request.getParameter("action");
-	    
-	    if ("checkId".equals(action)) {
-	        checkId(request, response);
-	        return;
-	    }
-	    
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		String name = request.getParameter("name");
-		String rePw = request.getParameter("rePw");		
+		        if (dto != null) {
+		            out.print("{\"status\":\"fail\", \"message\":\"이미 존재하는 아이디입니다.\"}");
+		        } else {
+		            out.print("{\"status\":\"success\", \"message\":\"사용 가능한 아이디입니다.\"}");
+		        }
+		        
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		        request.setAttribute("message", "다시 시도해 주세요.");
+		        request.getRequestDispatcher("join.jsp").forward(request, response);
+		    } finally {
+		        if (sqlSession != null) {
+		            sqlSession.close();
+		        }
+		    }
+		}
 		
-		
-	    SqlSession sqlSession = null;
-	    
-        try {
-	        sqlSession = sqlSessionFactory.openSession();
-	        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+	// 가입 - 최종 완성
+		@Override
+		public void join(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		    String action = request.getParameter("action");
+		    
+		    if ("checkId".equals(action)) {
+		        checkId(request, response);
+		        return;
+		    }
+		    
+			String id = request.getParameter("id");
+			String pw = request.getParameter("pw");
+			String name = request.getParameter("name");
+			String rePw = request.getParameter("rePw");		
+			
+			
+		    SqlSession sqlSession = null;
+		    
+	        try {
+		        sqlSession = sqlSessionFactory.openSession();
+		        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-            if (!pw.equals(rePw)) {
-            	request.setAttribute("message", "비밀번호가 일치하지 않습니다.");
-            	request.getRequestDispatcher("join.jsp").forward(request, response);
-            	return;
-            }
-    		if (pw.length() < 6) {
-    			request.setAttribute("message", "비밀번호는 최소 6자리 이상이어야 합니다.");
-    			request.getRequestDispatcher("join.jsp").forward(request, response);
-    			return;
-    		}
-          
-            UserDTO dto = new UserDTO();
-            dto.setId(id);
-            dto.setPw(pw);
-            dto.setName(name);
-
-            mapper.join(dto);
-            sqlSession.commit();
-            
-            response.sendRedirect("login.user"); 
-            
-        } 
-        
-        catch (Exception e) {
-	        e.printStackTrace();
-	        request.setAttribute("message", "회원가입에 실패했습니다. 다시 시도해 주세요.");
-	        request.getRequestDispatcher("join.jsp").forward(request, response);
-	    } finally {
-	        if (sqlSession != null) {
-	            sqlSession.close();
-	        }
-	    }
-
-	}
-	
-// 로그인
-	@Override
-	public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    
-		String id = request.getParameter("id");
-	    String pw = request.getParameter("pw");
-	    String check = request.getParameter("check");
-
-	    UserDTO dto = new UserDTO();
-	    dto.setId(id);
-	    dto.setPw(pw);
-
-	    UserDTO resultDto = null;
-	    SqlSession sqlSession = null;
-	    
-	    try {
-	        sqlSession = sqlSessionFactory.openSession();
-	        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-
-	        resultDto = mapper.login(id, pw);
-
-	        if (resultDto != null) { // 로그인 성공 시
-	            HttpSession session = request.getSession();
-	            session.setAttribute("user", resultDto);
-
-	            // 쿠키
-	            if (check != null && check.equals("check")) { // 아이디 기억하기 체크했을 시
-	                Cookie cookie = new Cookie("id", id);
-	                cookie.setMaxAge(60*60*24*7);
-	                cookie.setPath("/");
-	                response.addCookie(cookie);
-	            } else { // 체크 해지 했을 시
-	                Cookie noCookie = new Cookie("id", "");
-	                noCookie.setMaxAge(0);
-	                noCookie.setPath("/");
-	                response.addCookie(noCookie);
-	                System.out.println("쿠키 삭제 완료");
+	            if (!pw.equals(rePw)) {
+	            	request.setAttribute("message", "비밀번호가 일치하지 않습니다.");
+	            	request.getRequestDispatcher("join.jsp").forward(request, response);
+	            	return;
 	            }
-	            response.sendRedirect("../index.jsp");
-	            
-	        } else { // 로그인 실패 시
-	            request.setAttribute("error", "아이디 또는 비밀번호가 틀렸습니다.");
-	            request.getRequestDispatcher("login.jsp").forward(request, response);
-	        }
-	    } 
-	    
-	    catch (Exception e) {
-	        e.printStackTrace();
-	        request.setAttribute("error", "다시 시도해 주세요.");
-	        request.getRequestDispatcher("login.jsp").forward(request, response);
-	    } finally {
-	        if (sqlSession != null) {
-	            sqlSession.close();
-	        }
-	    }
-	}
+	    		if (pw.length() < 6) {
+	    			request.setAttribute("message", "비밀번호는 최소 6자리 이상이어야 합니다.");
+	    			request.getRequestDispatcher("join.jsp").forward(request, response);
+	    			return;
+	    		}
+	          
+	            UserDTO dto = new UserDTO();
+	            dto.setId(id);
+	            dto.setPw(pw);
+	            dto.setName(name);
 
-// 수정
+	            mapper.join(dto);
+	            sqlSession.commit();
+	            
+	            response.sendRedirect("login.user"); 
+	            
+	        } 
+	        
+	        catch (Exception e) {
+		        e.printStackTrace();
+		        request.setAttribute("message", "회원가입에 실패했습니다. 다시 시도해 주세요.");
+		        request.getRequestDispatcher("join.jsp").forward(request, response);
+		    } finally {
+		        if (sqlSession != null) {
+		            sqlSession.close();
+		        }
+		    }
+
+		}
+		
+	// 로그인 - 최종 완성
+		@Override
+		public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		    
+			String id = request.getParameter("id");
+		    String pw = request.getParameter("pw");
+		    String check = request.getParameter("check");
+
+		    UserDTO dto = new UserDTO();
+		    dto.setId(id);
+		    dto.setPw(pw);
+
+		    UserDTO resultDto = null;
+		    SqlSession sqlSession = null;
+		    
+		    try {
+		        sqlSession = sqlSessionFactory.openSession();
+		        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+		        resultDto = mapper.login(id, pw);
+
+		        if (resultDto != null) { // 로그인 성공 시
+		            HttpSession session = request.getSession();
+		            session.setAttribute("user", resultDto);
+
+		            // 쿠키
+		            if (check != null && check.equals("check")) { // 아이디 기억하기 체크했을 시
+		                Cookie cookie = new Cookie("id", id);
+		                cookie.setMaxAge(60*60*24*7);
+		                cookie.setPath("/");
+		                response.addCookie(cookie);
+		            } else { // 체크 해지 했을 시
+		                Cookie noCookie = new Cookie("id", "");
+		                noCookie.setMaxAge(0);
+		                noCookie.setPath("/");
+		                response.addCookie(noCookie);
+		            }
+		            response.sendRedirect("../board/index.board");
+		            
+		        } else { // 로그인 실패 시
+		            request.setAttribute("error", "아이디 또는 비밀번호가 틀렸습니다.");
+		            request.getRequestDispatcher("login.jsp").forward(request, response);
+		        }
+		    } 
+		    
+		    catch (Exception e) {
+		        e.printStackTrace();
+		        request.setAttribute("error", "다시 시도해 주세요.");
+		        request.getRequestDispatcher("login.jsp").forward(request, response);
+		    } finally {
+		        if (sqlSession != null) {
+		            sqlSession.close();
+		        }
+		    }
+		}
+// 수정 - 최종 완성
 	@Override
 	public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	 
@@ -229,7 +227,7 @@ public class UserServiceImpl implements UserService {
 	    }
 	}
 
-// 삭제
+// 삭제 - 최종 완성
 	@Override
 	public void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -298,7 +296,7 @@ public class UserServiceImpl implements UserService {
 	    }
 	}
 
-// 계정 조회
+// 계정 조회 - 최종 완성
 	@Override
 	public void find(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
@@ -337,7 +335,7 @@ public class UserServiceImpl implements UserService {
 	
 	}
 
-// 비밀번호 변경
+// 비밀번호 변경 - 최종 완성
 	@Override
 	public void change(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();

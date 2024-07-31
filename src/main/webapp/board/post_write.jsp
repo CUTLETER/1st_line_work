@@ -17,11 +17,12 @@
 	            <label for="content">글 내용</label>
 	            <textarea class="form-control" rows="20" name="content" style="resize:none; " required></textarea>
 	        </div>
-	        <div class="btn-wrap btns">
-	            <button type="submit" class="btn btn-default right" >등록</button>
-	            <button type="button" class="btn btn-default right" onclick = "location.href='postList.board?boardId=${boardId}'">취소</button>
-	        </div>
-	    </form>
+
+	        <div class="btn-wrap btns"> <!-- css 수정을 위해 각 버튼의 클래스명 추가 -->
+	            <button type="submit" class="btn btn-default right btn-insert" >등록</button>
+	            <button type="button" class="btn btn-default right btn-back" onclick = "location.href='postList.board?boardId=${boardId}'">취소</button>
+	        </div> 
+	    </form>    
     </div>  
 
 <%@ include file="../include/footer.jsp" %>

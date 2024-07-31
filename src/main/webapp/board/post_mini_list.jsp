@@ -88,8 +88,6 @@
 		</c:forEach>
       </tbody>
       </table>
-
-<!-- 페이지 번호 UI 수정본 -->
     <div class="pagination-wrap">
       <ul class="pagination page-number">
         <li><a href="#">이전</a></li>
