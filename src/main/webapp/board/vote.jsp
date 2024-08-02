@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@ include file="../include/header.jsp"%>
+
 <div id="wrapped">
 	<div class="top">
 		<ul class="top_text">
@@ -12,11 +14,10 @@
 					전체 카테고리</a></li>
 		</ul>
 	</div>
-
 	<div class="title">
 		<h3 class="bold">${dto.boardType } 카테고리 신설 요청합니다</h3>
 		<p>
-			${dto.regdate } | 조회 ${dto.viewCount } | <span class="glyphicon glyphicon-thumbs-up"></span>${dto.likeCount }
+			<fmt:formatDate value="${dto.regdate}" pattern="YYYY-MM-dd HH:MM" />| 조회 ${dto.viewCount} | <span class="glyphicon glyphicon-thumbs-up"></span>${dto.likeCount }
 		</p>
 		<button type="button" class="title_right" onclick="location.href='increaseVoteLike.board?postNo=${dto.postNo}'">
 			<span class="glyphicon glyphicon-thumbs-up">${dto.likeCount }</span>		
@@ -53,15 +54,10 @@
 </div>
 
 <script>
-var yesVotes = 0;
-var noVotes = 0;
+var state = ${state};
+var yesVotes = ${dto.yes};
+var noVotes = ${dto.no};
 
-document.addEventListener('DOMContentLoaded', function () {
-    yesVotes = parseInt(localStorage.getItem('yesVotes')) || 0;
-    noVotes = parseInt(localStorage.getItem('noVotes')) || 0;
-    updatePercentages();
-    
-});
 
 document.getElementById('yes').addEventListener('click', function() {
     submitVote('yes');
@@ -72,10 +68,6 @@ document.getElementById('no').addEventListener('click', function() {
 });
 
 function submitVote(option) {
-    if (getCookie("voted") === "true") {
-        alert("이미 투표하셨습니다.");
-        return;
-    }
 
     if (option === 'yes') {
         yesVotes++;
@@ -85,7 +77,6 @@ function submitVote(option) {
 
     localStorage.setItem('yesVotes', yesVotes);
     localStorage.setItem('noVotes', noVotes);
-    setCookie("voted", true, 7); // 7일 동안 쿠키 유지
     updatePercentages();
 
 }
@@ -109,24 +100,18 @@ function updatePercentages() {
         noOption.style.background = 'linear-gradient(to right, #00AFB9D5 ' + percentageNo + '%, #fff ' + percentageNo + '%)';
     }
 }
-
-
-function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+function showAlert() {
+    alert("이미 투표하였습니다");
 }
 
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+document.addEventListener('DOMContentLoaded', function () {
+	if (state === 1) {
+        showAlert();
     }
-    return null;
-}
+    yesVotes =  ${dto.yes};
+    noVotes = ${dto.no};
+    updatePercentages();
+    
+});
 </script>
 <%@ include file="../include/footer.jsp"%>

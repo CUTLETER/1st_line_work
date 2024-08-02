@@ -170,7 +170,7 @@
     	VALUES (#{boardType}, #{boardCategory}, #{content}, SYSTIMESTAMP, #{userNo})
   </insert>
   <select id="voteContent" resultType="com.kkodamkkodam.board.model.MiniDTO">
-	    SELECT POST_NO, BOARD_TYPE, BOARD_CATEGORY, REGDATE, VIEW_COUNT, LIKE_COUNT
+	    SELECT POST_NO, BOARD_TYPE, BOARD_CATEGORY, REGDATE, VIEW_COUNT,USER_NO, LIKE_COUNT,YES,NO
 	    FROM POST_MINI
 	    WHERE POST_NO = #{postNo}
   </select>

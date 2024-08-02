@@ -8,14 +8,6 @@
   <div id="wrapped">
       <article id="my-slide">
         <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-              <li data-target="#myCarousel" data-slide-to="3"></li>
-            </ol>
-          
             <!-- Wrapper for slides 
                  이미지 크기는 항상 똑같아야함-->
             <div class="carousel-inner">
@@ -24,7 +16,7 @@
               </div>
           
               <div class="item">
-                <img src="../resources/img/slide2.png" alt="슬라이드2">
+                <img src="../resources/img/slide2.jpg" alt="슬라이드2">
               </div>
           
               <div class="item">
@@ -32,7 +24,7 @@
               </div>
 
               <div class="item">
-                <img src="../resources/img/slide4.png" alt="슬라이드4">
+                <img src="../resources/img/slide4.jpg" alt="슬라이드4">
               </div>
             </div>
           
@@ -51,7 +43,7 @@
       <section id="board-title" class="title">
         <div class="wrap" >
           <div class="left">
-          <h4 class="board-connected"><c:out value="${boardType}" /> 게시판</h4>
+          <h4 class="board-connected">개설 신청 목록</h4>
         </div>
         <div class="input-group right">
             <input type="text" class="form-control" placeholder="Search">
@@ -69,7 +61,6 @@
         <tr>
             <th scope="col">번호</th>
             <th scope="col">제목</th>
-            <th scope="col">작성자</th>
             <th scope="col">작성일</th>
             <th scope="col">조회수</th>
         </tr>
@@ -81,7 +72,6 @@
 				<td>
 					<a href="${pageContext.request.contextPath}/board/voteContent.board?postNo=${dto.postNo}">${dto.boardType}</a>
 				</td>
-				<td>${dto.userNo}</td>
 				<td><fmt:formatDate value="${dto.regdate}" pattern="MM-dd"/></td>
 				<td>${dto.viewCount}</td>
 				</tr>

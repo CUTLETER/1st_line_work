@@ -7,7 +7,9 @@
 	
 	<!-- 중복 검사 -->
 	<select id="checkId" parameterType="string" resultType="com.kkodamkkodam.user.model.UserDTO">
-		SELECT * FROM USERS WHERE ID = #{id} LIMIT 1
+		SELECT * FROM (
+	    	SELECT * FROM USERS WHERE ID = #{id}
+		) WHERE ROWNUM = 1
 	</select>
 	
 	<!-- 가입 -->

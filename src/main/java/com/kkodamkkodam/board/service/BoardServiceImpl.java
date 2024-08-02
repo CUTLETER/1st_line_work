@@ -23,6 +23,10 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.time.format.DateTimeFormatter;
 
 public class BoardServiceImpl implements BoardService {
 
@@ -91,7 +95,6 @@ public class BoardServiceImpl implements BoardService {
 		params.put("postNo", postNo);
 		params.put("boardId", boardId);
 		
-		System.out.println("정상실행");
 		// 마이바티스 실행
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		BoardMapper mapper = sql.getMapper(BoardMapper.class);
@@ -103,6 +106,7 @@ public class BoardServiceImpl implements BoardService {
 		dto.setCommentCount(mapper.commentCount(dto));
 		sql.close(); // 마이바티스 세션 종료
 
+		
 		request.setAttribute("boardType", boardType);
 		request.setAttribute("dto", dto);
 		request.setAttribute("commentList", commentList);
@@ -393,22 +397,17 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void voteContent(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String boardType = request.getParameter("boardType");
-		String boardCategory = request.getParameter("boardCategory");
 		Long postNo = Long.parseLong(request.getParameter("postNo"));
-
-		Map<String, Object> params = new HashMap<>();
-		params.put("boardType", boardType);
-		params.put("boardCategory", boardCategory);
-		params.put("postNo", postNo); // 추가된 부분
+		String state = request.getParameter("state"); 
+		
 
 		SqlSession sql = sqlSessionFactory.openSession(true);
 		BoardMapper mapper = sql.getMapper(BoardMapper.class);
 
-		mapper.miniListView(params); // 조회수 증가
-		MiniDTO dto = mapper.voteContent(params); // 결과 반환
+		mapper.miniListView(postNo); // 조회수 증가
+		MiniDTO dto = mapper.voteContent(postNo); // 결과 반환
 		sql.close();
-
+		request.setAttribute("state", state);
 		request.setAttribute("dto", dto);
 		request.getRequestDispatcher("vote.jsp").forward(request, response); // forward 경로 확인
 	}
@@ -451,14 +450,12 @@ public class BoardServiceImpl implements BoardService {
 			params.put("userNo", userNo);
 			int x=mapper.hasUserVoted(params);
 	        // 사용자가 이미 투표했는지 확인
-	        if (x!=0) {
-	        	
+	        if (x>0) {
 	            sql.close();
-	            response.setContentType("application/json");
-	            response.getWriter().write("{\"error\": \"이미 투표하셨습니다.\"}");
+	            String redirectUrl = "voteContent.board?postNo=" + postNo + "&state=" + 1 ;
+	            request.getRequestDispatcher(redirectUrl).forward(request, response);
 	            return;
 	        }
-
 	        // 현재 투표 상황을 가져옵니다.
 	        MiniDTO dto = new MiniDTO();
 	        dto.setPostNo(postNo);
@@ -480,10 +477,12 @@ public class BoardServiceImpl implements BoardService {
 	        if (totalVotes >= 20 && yesPercentage >= 60) {
 	            // 조건이 충족되면 새로운 미니 게시판으로 리다이렉트
 	            response.sendRedirect("mini" + boardType + ".jsp");
+	            return;
 	        }
+	        request.getRequestDispatcher("voteContent.board?postNo=" + request.getParameter("postNo")).forward(request, response);
+	        return;
 	    } catch (Exception e) {
 	        e.printStackTrace();
-	        response.sendRedirect("voteContent.board?postNo=" + request.getParameter("postNo"));
 	    }
 	}
 	

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@ include file="../include/header.jsp" %>
 
@@ -14,7 +15,7 @@
             <div class="user-box flex-1">
                 <div class="user">
                     <p>익명</p>
-                    <p>10분전</p>
+                    <p><fmt:formatDate value="${dto.regdate}" pattern="YYYY-MM-dd HH:MM" /></p>
                 </div>
             </div>
             <div class="dropdown">
@@ -76,7 +77,7 @@
 	            						<span>작성자</span>
 	        						</c:if>
         						</p>
-	                            <p>10분전</p>
+	                            <p><fmt:formatDate value="${dto.regdate}" pattern="MM월 dd일 HH:mm" /></p>
 	                        </div>
 	                    </div>
 	                    <div class="comment-icon">

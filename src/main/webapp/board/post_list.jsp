@@ -8,14 +8,7 @@
 <div id="wrapped">
 	<article id="my-slide">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-				<li data-target="#myCarousel" data-slide-to="3"></li>
-			</ol>
-
+			
 			<!-- Wrapper for slides 
                  이미지 크기는 항상 똑같아야함-->
             <div class="carousel-inner">

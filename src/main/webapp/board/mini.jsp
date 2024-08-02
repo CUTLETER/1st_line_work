@@ -6,7 +6,7 @@
 
 <div id="wrapped">
 	<div class="top">
-		<button type="button" class="btn_round" onclick="location.href='${pageContext.request.contextPath }/board/mini.jsp'">게시 전체보기</button>
+		<button type="button" class="btn_round" onclick="location.href='${pageContext.request.contextPath }/board/mini.jsp'">게시판 전체보기</button>
 	</div>
 
 	<nav>
@@ -22,7 +22,7 @@
 					</h3>
 					<div class="list">
 						<ul>
-							<li><a href="#">${dto.boardType }</a></li>
+							<li><a href="#">뉴진스</a></li>
 							<li><a href="#">에스파</a></li>
 							<li><a href="#">태연</a></li>
 							<li><a href="#">아이들</a></li>
@@ -46,10 +46,146 @@
 					</div>
 					<div class="list">
 						<ul>
-							<li><a href="#">넷플릭스</a></li>
-							<li><a href="#">소설</a></li>
-							<li><a href="#">이세계아이돌</a></li>
-							<li><a href="#">필름카메라</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+						</ul>
+					</div>
+					<div class="list">
+						<ul>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+						</ul>
+					</div>
+					<div class="list">
+						<ul>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+						</ul>
+					</div>
+					<div class="list">
+						<ul>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+						</ul>
+					</div>
+					<div class="list">
+						<ul>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+						</ul>
+					</div>
+					<div class="list">
+						<ul>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
+							<li><a href="#">뉴진스</a></li>
+							<li><a href="#">에스파</a></li>
+							<li><a href="#">태연</a></li>
+							<li><a href="#">아이들</a></li>
+							<li><a href="#">이영지</a></li>
 						</ul>
 					</div>
 				</div>
@@ -63,6 +199,150 @@
 							<span class="glyphicon glyphicon-collapse-down"></span>
 						</button>
 					</h3>
+					<div class="list">
+						<ul>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+						</ul>
+					</div>
+					<div class="list">
+						<ul>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+						</ul>
+					</div>
+					<div class="list">
+						<ul>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+						</ul>
+					</div>
+					<div class="list">
+						<ul>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+						</ul>
+					</div>
+					<div class="list">
+						<ul>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+						</ul>
+					</div>
+					<div class="list">
+						<ul>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+							<li><a href="#">피파</a></li>
+							<li><a href="#">롤</a></li>
+							<li><a href="#">오버워치</a></li>
+							<li><a href="#">서든어택</a></li>
+							<li><a href="#">메이플</a></li>
+						</ul>
+					</div>
 					<div class="list">
 						<ul>
 							<li><a href="#">피파</a></li>
